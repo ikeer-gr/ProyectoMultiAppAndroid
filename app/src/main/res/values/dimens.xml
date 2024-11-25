@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_pantalla">12dp</dimen>
+    <dimen name="texto_boton">40sp</dimen>
+    <dimen name="alto_min_boton">36dp</dimen>
+    <dimen name="ancho_min_boton">120dp</dimen>
+    <dimen name="margen_boton">6sp</dimen>
+    <dimen name="boton_check">6dp</dimen>
+    <dimen name="texto_check">20sp</dimen>
+    <dimen name="padding_boton">12sp</dimen>
+
+
+
+</resources>

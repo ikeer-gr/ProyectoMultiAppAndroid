@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IkerGomezRubio</string>
+    <string name="restar">-</string>
+    <string name="sumar">+</string>
+    <string name="reseteo">RESETEO</string>
+    <string name="checkBox">Contar Negativos</string>
+</resources>
