@@ -1,7 +1,8 @@
 package com.example.ikergomezrubio;
 
-import android.content.pm.ActivityInfo;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,34 +15,44 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int contador = 5;
+    private int contador = 0; // Valor inicial por defecto
+    private static final String CONTADOR_KEY = "contador_key"; // Clave para guardar estado en Bundle
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Se eliminó la llamada a EdgeToEdge porque no es relevante a menos que esté explícitamente configurada en tu proyecto.
         setContentView(R.layout.activity_main);
-        mostrarResultado();
 
-        // Configuración del listener de teclado
         TextView reseteo = findViewById(R.id.textDefault);
         reseteo.setOnEditorActionListener(new EventoTeclado());
 
-        // Verificar que el Intent contiene datos antes de acceder a ellos
-        Bundle datos = getIntent().getExtras();
-        if (datos != null && datos.containsKey("d1")) {
-            contador = datos.getInt("d1", 5); // Valor por defecto es 5
+        // Restaurar desde el Intent si se proporciona un valor
+        if (savedInstanceState != null) {
+            contador = savedInstanceState.getInt(CONTADOR_KEY, 0); // Recuperar estado tras cambio de orientación
+        } else {
+            int valorDesdeIntent = getIntent().getIntExtra("valor", 0);
+            if (valorDesdeIntent != 0) {
+                contador = valorDesdeIntent; // Usar valor enviado desde principal
+            } else {
+                SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+                contador = datos.getInt("cuenta", 0); // Restaurar desde SharedPreferences
+            }
         }
+
         mostrarResultado();
     }
 
-    // Evento para manejar la acción del teclado
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CONTADOR_KEY, contador); // Guardar el valor actual del contador
+    }
+
     private class EventoTeclado implements TextView.OnEditorActionListener {
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                reseteo(v); // Se pasa 'v' para evitar posibles null pointer exceptions
+                reseteo(v);
             }
             return false;
         }
@@ -73,8 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
         mostrarResultado();
 
-        // Ocultar teclado después de reiniciar
-        if (v != null) { // Verificar que 'v' no sea nulo
+        if (v != null) {
             InputMethodManager teclado = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (teclado != null) {
                 teclado.hideSoftInputFromWindow(v.getWindowToken(), 0);
@@ -87,26 +97,21 @@ public class MainActivity extends AppCompatActivity {
         resultado.setText(String.valueOf(contador));
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = datos.edit();
+        editor.putInt("cuenta", contador);
+        editor.apply();
+    }
 
-    //    @Override
-//    public void onPause() {
-//        super.onPause();
-//        SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
-//        SharedPreferences.Editor editor = datos.edit();
-//        editor.putInt("cuenta", contador);
-//        editor.apply();
-//
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
-//        contador = datos.getInt("cuenta", 0);
-//        Log.d(msg, "onResume contador" + contador);
-//        mostrarResultado();
-//    }
-//
+    @Override
+    public void onResume() {
+        super.onResume();
+        mostrarResultado();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

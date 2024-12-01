@@ -7,9 +7,6 @@ import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class principal extends AppCompatActivity {
 
@@ -22,9 +19,16 @@ public class principal extends AppCompatActivity {
 
     public void ejecutarContador(View v) {
         Intent i = new Intent(this, MainActivity.class);
-        EditText valor= (EditText) findViewById(R.id.valorinicial);
-        int v1 = Integer.parseInt(valor.getText().toString());
-        i.putExtra("valor", v1);
+        EditText valor = findViewById(R.id.valorinicial);
+
+        int v1 = 0; // Valor predeterminado
+        try {
+            v1 = Integer.parseInt(valor.getText().toString()); // Capturar valor del EditText
+        } catch (NumberFormatException e) {
+            // Si el valor no es un número válido, se mantiene el predeterminado (0)
+        }
+
+        i.putExtra("valor", v1); // Enviar valor al Intent
         startActivity(i);
     }
 
