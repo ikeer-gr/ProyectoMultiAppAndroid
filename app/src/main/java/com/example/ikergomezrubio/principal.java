@@ -37,6 +37,12 @@ public class principal extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void ejecutar3raya(View v) {
+        Intent i = new Intent(this, menu3raya.class);
+        startActivity(i);
+    }
+
+
     public void salir(View v) {
         finish();
     }

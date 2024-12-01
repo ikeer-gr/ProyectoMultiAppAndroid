@@ -13,6 +13,12 @@
         android:theme="@style/Theme.IkerGomezRubio"
         tools:targetApi="31">
         <activity
+            android:name=".juego3raya"
+            android:exported="false" />
+        <activity
+            android:name=".menu3raya"
+            android:exported="false" />
+        <activity
             android:name=".principal"
             android:exported="true">
             <intent-filter>

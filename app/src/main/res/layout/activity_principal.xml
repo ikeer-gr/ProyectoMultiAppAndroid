@@ -15,7 +15,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="109dp" />
+            android:layout_height="60dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -23,6 +23,7 @@
 
         <Button
             android:id="@+id/bcal"
+            style="@android:style/Widget.Button.Toggle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="ejecutarCalculadora"
@@ -30,10 +31,11 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            android:layout_height="87dp" />
 
         <Button
             android:id="@+id/bcontador"
+            style="@android:style/Widget.Button.Toggle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="ejecutarContador"
@@ -50,10 +52,23 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="58dp" />
+            android:layout_height="52dp" />
+
+        <Button
+            android:id="@+id/b3en"
+            style="@android:style/Widget.Button.Toggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ejecutar3raya"
+            android:text="Jugar 3 en raya" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="114dp" />
 
         <Button
             android:id="@+id/b_salir"
+            style="@android:style/Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="salir"
