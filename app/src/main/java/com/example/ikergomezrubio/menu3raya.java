@@ -6,8 +6,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class menu3raya extends AppCompatActivity {
+
+    private String modoSeleccionado = "jugador_vs_maquina"; // Predeterminado
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +20,33 @@ public class menu3raya extends AppCompatActivity {
 
         configurarActionBar();
 
-        Button btnPvP = findViewById(R.id.btnJugadorVsJugador);
-        Button btnPvM = findViewById(R.id.btnJugadorVsMaquina);
+        CheckBox checkJvsJ = findViewById(R.id.checkJugadorVsJugador);
+        CheckBox checkJvsM = findViewById(R.id.checkJugadorVsMaquina);
+        Button btnConfirmar = findViewById(R.id.btnConfirmarModo);
 
-        btnPvP.setOnClickListener(v -> iniciarJuego("jugador_vs_jugador"));
-        btnPvM.setOnClickListener(v -> iniciarJuego("jugador_vs_maquina"));
+        checkJvsM.setChecked(true); // Predeterminado
 
+        checkJvsJ.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                checkJvsM.setChecked(false);
+                modoSeleccionado = "jugador_vs_jugador";
+            }
+        });
+
+        checkJvsM.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                checkJvsJ.setChecked(false);
+                modoSeleccionado = "jugador_vs_maquina";
+            }
+        });
+
+        btnConfirmar.setOnClickListener(v -> {
+            if (checkJvsJ.isChecked() || checkJvsM.isChecked()) {
+                iniciarJuego(modoSeleccionado);
+            } else {
+                Toast.makeText(this, "Por favor, selecciona un modo de juego", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void iniciarJuego(String modo) {
@@ -30,7 +55,7 @@ public class menu3raya extends AppCompatActivity {
         startActivity(intent);
     }
 
-     private void configurarActionBar() {
+    private void configurarActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true); // Muestra la flecha de "Atrás"
@@ -43,6 +68,5 @@ public class menu3raya extends AppCompatActivity {
         finish(); // Cierra la actividad y vuelve a la anterior
         return true;
     }
-
 
 }

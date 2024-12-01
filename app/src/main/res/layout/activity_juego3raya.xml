@@ -14,7 +14,7 @@
         android:text="Turno: X"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
     <GridLayout
         android:id="@+id/gridTablero"
@@ -62,14 +62,18 @@
             android:layout_height="100dp" />
 
     </GridLayout>
+
+    <!-- Contenedor para la selección de dificultad -->
     <LinearLayout
+        android:id="@+id/layoutDificultad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:visibility="visible">
 
         <TextView
-            android:layout_width="351dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Selecciona la Dificultad"
@@ -77,19 +81,19 @@
 
         <CheckBox
             android:id="@+id/checkFacil"
-            android:layout_width="352dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fácil" />
 
         <CheckBox
             android:id="@+id/checkMedio"
-            android:layout_width="353dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medio" />
 
         <CheckBox
             android:id="@+id/checkDificil"
-            android:layout_width="353dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Difícil" />
 
@@ -98,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Confirmar" />
+            android:text="Confirmar dificultad antes de jugar" />
 
     </LinearLayout>
 
@@ -109,11 +113,11 @@
         android:text="Ganador: "
         android:visibility="gone"
         android:textSize="18sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnReiniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reiniciar Juego"/>
+        android:text="Reiniciar Juego" />
 </LinearLayout>

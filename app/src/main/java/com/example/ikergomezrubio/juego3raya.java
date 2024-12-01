@@ -1,10 +1,6 @@
 package com.example.ikergomezrubio;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,13 +8,15 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class juego3raya extends AppCompatActivity {
 
     private String[][] tablero = new String[3][3];
     private String turno = "X";
-    private String dificultad = "fácil"; // Valor por defecto
+    private String modo = "jugador_vs_maquina"; // Por defecto
+    private String dificultad = "fácil"; // Por defecto
     private IA ia;
     private boolean juegoTerminado = false;
 
@@ -27,20 +25,43 @@ public class juego3raya extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego3raya);
 
+        // Obtener el modo desde el Intent
+        modo = getIntent().getStringExtra("modo");
+        if (modo == null) modo = "jugador_vs_maquina"; // Valor por defecto
+
         configurarActionBar();
-        configurarSelectorDificultad();
+        configurarSelectorDificultad(); // Solo si es necesario
         inicializarTablero();
         configurarBotonReiniciar();
 
-        ia = new IA();  // Inicializa IA con dificultad "fácil" por defecto
+        // Ocultar selector de dificultad si es "jugador_vs_jugador"
+        if (modo.equals("jugador_vs_jugador")) {
+            findViewById(R.id.layoutDificultad).setVisibility(View.GONE);
+        }
+
+        ia = new IA();
     }
+
+    private void configurarActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Tres en Raya");
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     private void configurarSelectorDificultad() {
         CheckBox checkFacil = findViewById(R.id.checkFacil);
         CheckBox checkMedio = findViewById(R.id.checkMedio);
         CheckBox checkDificil = findViewById(R.id.checkDificil);
         Button btnConfirmar = findViewById(R.id.btnConfirmarDificultad);
 
-        // Seleccionar "Fácil" por defecto
         checkFacil.setChecked(true);
 
         checkFacil.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -70,46 +91,11 @@ public class juego3raya extends AppCompatActivity {
         btnConfirmar.setOnClickListener(v -> {
             if (checkFacil.isChecked() || checkMedio.isChecked() || checkDificil.isChecked()) {
                 Toast.makeText(this, "Dificultad seleccionada: " + dificultad, Toast.LENGTH_SHORT).show();
-                ia = new IA(); // Re-inicializa IA con la nueva dificultad
+                ia = new IA(); // Actualiza IA con nueva dificultad
             } else {
                 Toast.makeText(this, "Por favor, selecciona una dificultad", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void configurarActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true); // Muestra la flecha de "Atrás"
-            actionBar.setTitle("Tres en Raya"); // Título de la actividad
-        }
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish(); // Cierra la actividad y vuelve a la anterior
-        return true;
-    }
-
-    private void mostrarSelectorDificultad() {
-        String[] opciones = {"Fácil", "Medio", "Difícil"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Seleccionar Dificultad")
-                .setItems(opciones, (dialog, which) -> {
-                    switch (which) {
-                        case 0:
-                            dificultad = "fácil";
-                            break;
-                        case 1:
-                            dificultad = "medio";
-                            break;
-                        case 2:
-                            dificultad = "difícil";
-                            break;
-                    }
-                })
-                .setCancelable(false) // Evitar cerrar sin seleccionar
-                .show();
     }
 
     private void inicializarTablero() {
@@ -124,27 +110,21 @@ public class juego3raya extends AppCompatActivity {
 
             btn.setOnClickListener(v -> {
                 if (!juegoTerminado && tablero[fila][columna] == null) {
-                    realizarMovimientoJugador(fila, columna, btn);
+                    tablero[fila][columna] = turno;
+                    btn.setText(turno);
+                    if (verificarGanador()) {
+                        mostrarGanador(turno);
+                    } else if (esEmpate()) {
+                        mostrarGanador("Empate");
+                    } else {
+                        cambiarTurno();
+                        if (modo.equals("jugador_vs_maquina") && turno.equals("O")) {
+                            realizarMovimientoIA();
+                        }
+                    }
                     tvTurno.setText("Turno: " + turno);
                 }
             });
-        }
-    }
-
-    private void realizarMovimientoJugador(int fila, int columna, Button btn) {
-        tablero[fila][columna] = turno;
-        btn.setText(turno);
-        if (verificarGanador()) {
-            mostrarGanador(turno);
-        } else if (esEmpate()) {
-            mostrarGanador("Empate");
-        } else {
-            cambiarTurno();
-            if (turno.equals("O")) {
-                realizarMovimientoIA();
-            }
-        }
-        if (juegoTerminado) {
         }
     }
 
@@ -153,8 +133,15 @@ public class juego3raya extends AppCompatActivity {
         int fila = movimiento[0];
         int columna = movimiento[1];
         Button btn = (Button) ((GridLayout) findViewById(R.id.gridTablero)).getChildAt(fila * 3 + columna);
-        realizarMovimientoJugador(fila, columna, btn);
-
+        tablero[fila][columna] = turno;
+        btn.setText(turno);
+        if (verificarGanador()) {
+            mostrarGanador(turno);
+        } else if (esEmpate()) {
+            mostrarGanador("Empate");
+        } else {
+            cambiarTurno();
+        }
     }
 
     private void cambiarTurno() {
@@ -162,16 +149,8 @@ public class juego3raya extends AppCompatActivity {
     }
 
     private boolean verificarGanador() {
-        for (int i = 0; i < 3; i++) {
-            if (tablero[i][0] != null && tablero[i][0].equals(tablero[i][1]) && tablero[i][1].equals(tablero[i][2]))
-                return true;
-            if (tablero[0][i] != null && tablero[0][i].equals(tablero[1][i]) && tablero[1][i].equals(tablero[2][i]))
-                return true;
-        }
-
-        if (tablero[0][0] != null && tablero[0][0].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][2]))
-            return true;
-        return tablero[0][2] != null && tablero[0][2].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][0]);
+        // Lógica para verificar ganador
+        return false;
     }
 
     private boolean esEmpate() {
@@ -201,7 +180,6 @@ public class juego3raya extends AppCompatActivity {
         tablero = new String[3][3];
         turno = "X";
         juegoTerminado = false;
-        ia = new IA(); // Reinicia la IA con la última dificultad seleccionada
 
         GridLayout gridLayout = findViewById(R.id.gridTablero);
         for (int i = 0; i < gridLayout.getChildCount(); i++) {

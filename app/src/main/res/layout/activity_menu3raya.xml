@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout android:id="@+id/layoutModoJuego"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/btnJugadorVsJugador"
+    <CheckBox
+        android:id="@+id/checkJugadorVsJugador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jugador vs Jugador" />
 
-    <Button
-        android:id="@+id/btnJugadorVsMaquina"
+    <CheckBox
+        android:id="@+id/checkJugadorVsMaquina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Máquina"
-        android:layout_marginTop="16dp" />
+        android:text="Jugador vs Máquina" />
+
+    <Button
+        android:id="@+id/btnConfirmarModo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar Modo" />
 </LinearLayout>
