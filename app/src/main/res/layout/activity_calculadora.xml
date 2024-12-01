@@ -6,7 +6,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="106dp" />
+        android:layout_height="62dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,22 +34,26 @@
         <TableRow android:layout_height="108dp">
 
             <Button
+                android:id="@+id/btnPi"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="π" />
 
             <Button
+                android:id="@+id/btnRaiz"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="√" />
 
             <Button
+                android:id="@+id/btnLimpiar"
                 style="@style/botoncal"
                 android:background="#FB2727"
                 android:text="C"
                 android:textColor="@color/white" />
 
             <Button
+                android:id="@+id/btnBorrar"
                 style="@style/botoncal"
                 android:background="#FB2727"
                 android:text="⌫"
@@ -60,18 +64,22 @@
         <TableRow>
 
             <Button
+                android:id="@+id/btn7"
                 style="@style/botoncal"
                 android:text="7" />
 
             <Button
+                android:id="@+id/btn8"
                 style="@style/botoncal"
                 android:text="8" />
 
             <Button
+                android:id="@+id/btn9"
                 style="@style/botoncal"
                 android:text="9" />
 
             <Button
+                android:id="@+id/btnMultiplicar"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="x" />
@@ -81,18 +89,22 @@
         <TableRow>
 
             <Button
+                android:id="@+id/btn4"
                 style="@style/botoncal"
                 android:text="4" />
 
             <Button
+                android:id="@+id/btn5"
                 style="@style/botoncal"
                 android:text="5" />
 
             <Button
+                android:id="@+id/btn6"
                 style="@style/botoncal"
                 android:text="6" />
 
             <Button
+                android:id="@+id/btnRestar"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="-" />
@@ -102,18 +114,22 @@
         <TableRow>
 
             <Button
+                android:id="@+id/btn1"
                 style="@style/botoncal"
                 android:text="1" />
 
             <Button
+                android:id="@+id/btn2"
                 style="@style/botoncal"
                 android:text="2" />
 
             <Button
+                android:id="@+id/btn3"
                 style="@style/botoncal"
                 android:text="3" />
 
             <Button
+                android:id="@+id/btnSumar"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="+" />
@@ -123,20 +139,24 @@
         <TableRow>
 
             <Button
+                android:id="@+id/btnSigno"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="+/-" />
 
             <Button
+                android:id="@+id/btn0"
                 style="@style/botoncal"
                 android:text="0" />
 
             <Button
+                android:id="@+id/btnDividir"
                 style="@style/botoncal"
                 android:background="#979494"
                 android:text="/" />
 
             <Button
+                android:id="@+id/btnIgual"
                 style="@style/botoncal"
                 android:background="#5CD25C"
                 android:text="="
