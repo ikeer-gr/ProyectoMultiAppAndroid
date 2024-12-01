@@ -124,30 +124,31 @@ public class calculadora extends AppCompatActivity {
     }
 
     private void aplicarValorPi() {
-        double valor = Math.PI;
-        mostrarResultado(valor);
+        double valorPi = Math.PI;
 
-        primerOperando = valor;
-        operador = null;
+        // Asignar π directamente al primer operando
+        primerOperando = valorPi;
+
+        // Mostrar π como símbolo o número en la pantalla
+        pantalla.setText("π"); // Opcional: mostrar "π" en vez de su valor numérico
+
+        // Limpiar entrada pero no sincronizar con el valor redondeado
+        entrada.setLength(0);
+
+        nuevaOperacion = false; // Preparar para nuevas operaciones
     }
+
+
+
     private void aplicarOperador(String nuevoOperador) {
         try {
             if (entrada.length() > 0) {
-                // Convertir la entrada actual al primer operando
-                double valorActual = Double.parseDouble(entrada.toString());
-                if (operador != null) {
-                    // Si ya hay un operador pendiente, calcular el resultado previo
-                    primerOperando = calcularResultado(primerOperando, valorActual, operador);
-                    mostrarResultado(primerOperando);
-                } else {
-                    primerOperando = valorActual;
-                }
-                entrada.setLength(0); // Limpiar la entrada
+                primerOperando = Double.parseDouble(entrada.toString());
             }
 
-            // Establecer el nuevo operador
-            operador = nuevoOperador;
-            nuevaOperacion = true; // Preparar para el siguiente operando
+            operador = nuevoOperador; // Establecer operador actual
+            nuevaOperacion = true;   // Preparar para el siguiente número
+            entrada.setLength(0);    // Limpiar entrada
         } catch (NumberFormatException e) {
             pantalla.setText("Error");
             resetearCalculadora();
@@ -155,23 +156,31 @@ public class calculadora extends AppCompatActivity {
     }
 
     private void calcularResultadoFinal() {
-        try {
-            if (operador != null && entrada.length() > 0) {
-                // Si hay operador y entrada, realizar el cálculo
-                double segundoOperando = Double.parseDouble(entrada.toString());
-                primerOperando = calcularResultado(primerOperando, segundoOperando, operador);
-                mostrarResultado(primerOperando);
-                operador = null; // Reiniciar el operador después de calcular
+        if (operador != null) {
+            double segundoOperando;
+
+            // Detectar si se usa π como segundo operando
+            if ("π".equals(entrada.toString())) {
+                segundoOperando = Math.PI;
+            } else if (entrada.length() > 0) {
+                segundoOperando = Double.parseDouble(entrada.toString());
             } else {
-                // Si no hay segundo operando, mostrar el valor actual
-                mostrarResultado(primerOperando);
+                segundoOperando = primerOperando; // Si no hay entrada, usar el primer operando
             }
-            nuevaOperacion = true; // Preparar para la siguiente operación
-        } catch (NumberFormatException e) {
-            pantalla.setText("Error");
-            resetearCalculadora();
+
+            // Realizar el cálculo
+            primerOperando = calcularResultado(primerOperando, segundoOperando, operador);
+
+            // Mostrar el resultado y preparar para nueva operación
+            mostrarResultado(primerOperando);
+            operador = null; // Resetear operador
+            nuevaOperacion = true;
+        } else if (entrada.length() == 0) {
+            // Si no hay operador ni entrada, mostrar el primer operando
+            mostrarResultado(primerOperando);
         }
     }
+
 
     private double calcularResultado(double primerOperando, double segundoOperando, String operador) {
         try {
@@ -215,9 +224,18 @@ public class calculadora extends AppCompatActivity {
     }
 
     private void mostrarResultado(double valor) {
-        String resultado = formato.format(valor);
-        pantalla.setText(resultado);
-        entrada.setLength(0);
-        entrada.append(resultado); // Sincronizar entrada con el resultado mostrado
+        if (valor == Math.PI) {
+            pantalla.setText("π");
+        } else {
+            String resultado = formato.format(valor);
+            pantalla.setText(resultado);
+        }
+
+        entrada.setLength(0); // Limpiar la entrada
+        entrada.append(valor); // Sincronizar con el valor completo
     }
+
+
+
+
 }
