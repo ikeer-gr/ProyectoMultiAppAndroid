@@ -1,26 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/layoutModoJuego"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:padding="24dp"
+    android:background="@color/backgroundColor"
+    android:gravity="center_horizontal">
 
-    <CheckBox
-        android:id="@+id/checkJugadorVsJugador"
+    <!-- Título del menú -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="28dp" />
+
+    <TextView
+        android:id="@+id/tvTituloModoJuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Jugador" />
+        android:text="Selecciona el Modo de Juego"
+        android:textSize="24sp"
+        android:textColor="@color/primaryTextColor"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Opciones de modo de juego -->
+    <CheckBox
+        android:id="@+id/checkJugadorVsJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jugador vs Jugador"
+        android:textSize="18sp"
+        android:buttonTint="@color/primaryColor"
+        android:textColor="@color/secondaryTextColor"
+        android:layout_marginBottom="8dp" />
 
     <CheckBox
         android:id="@+id/checkJugadorVsMaquina"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Máquina" />
+        android:text="Jugador vs Máquina"
+        android:textSize="18sp"
+        android:buttonTint="@color/primaryColor"
+        android:textColor="@color/secondaryTextColor"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Botón para confirmar la selección -->
     <Button
         android:id="@+id/btnConfirmarModo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirmar Modo" />
+        android:text="Confirmar Modo"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="8dp"
+        android:padding="12dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="496dp"
+        app:srcCompat="@drawable/imagen1" />
+
 </LinearLayout>

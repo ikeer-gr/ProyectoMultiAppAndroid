@@ -149,9 +149,30 @@ public class juego3raya extends AppCompatActivity {
     }
 
     private boolean verificarGanador() {
-        // Lógica para verificar ganador
-        return false;
+        // Comprobar filas
+        for (int i = 0; i < 3; i++) {
+            if (tablero[i][0] != null && tablero[i][0].equals(tablero[i][1]) && tablero[i][1].equals(tablero[i][2])) {
+                return true; // Hay un ganador en la fila i
+            }
+        }
+
+        // Comprobar columnas
+        for (int i = 0; i < 3; i++) {
+            if (tablero[0][i] != null && tablero[0][i].equals(tablero[1][i]) && tablero[1][i].equals(tablero[2][i])) {
+                return true; // Hay un ganador en la columna i
+            }
+        }
+
+        // Comprobar diagonal principal
+        if (tablero[0][0] != null && tablero[0][0].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][2])) {
+            return true; // Hay un ganador en la diagonal principal
+        }
+
+        // Comprobar diagonal secundaria
+        return tablero[0][2] != null && tablero[0][2].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][0]); // Hay un ganador en la diagonal secundaria
+// No hay ganador
     }
+
 
     private boolean esEmpate() {
         for (String[] fila : tablero) {
