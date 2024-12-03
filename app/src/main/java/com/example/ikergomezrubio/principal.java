@@ -37,8 +37,8 @@ public class principal extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void ejecutar3raya(View v) {
-        Intent i = new Intent(this, menu3raya.class);
+    public void ejecutarMjuegos(View v) {
+        Intent i = new Intent(this, menuJuegos.class);
         startActivity(i);
     }
 

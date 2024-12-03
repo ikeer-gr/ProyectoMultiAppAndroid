@@ -2,74 +2,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:padding="16dp">
 
     <!-- Encabezado -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenido"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
+        android:text="Bienvenido"
         android:textColor="#333333"
-        android:layout_marginBottom="32dp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- Botón de Calculadora -->
     <Button
         android:id="@+id/bcal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculadora"
-        android:backgroundTint="#6200EE"
-        android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp"
-        android:onClick="ejecutarCalculadora" />
+        android:backgroundTint="#6200EE"
+        android:onClick="ejecutarCalculadora"
+        android:text="Calculadora"
+        android:textColor="#FFFFFF" />
 
     <!-- Botón de Contador -->
     <Button
         android:id="@+id/bcontador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contador"
-        android:backgroundTint="#03DAC5"
-        android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp"
-        android:onClick="ejecutarContador" />
+        android:backgroundTint="#03DAC5"
+        android:onClick="ejecutarContador"
+        android:text="Contador"
+        android:textColor="#FFFFFF" />
 
     <!-- Campo de texto del contador -->
+    <!-- Botón de Jugar 3 en Raya -->
     <EditText
         android:id="@+id/valorinicial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Valor Inicial"
-        android:gravity="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:backgroundTint="#D1D1D1"
         android:layout_marginBottom="16dp"
-        android:inputType="number" />
+        android:backgroundTint="#D1D1D1"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="number"
+        android:textColor="#03D9C4"
+        android:textColorHint="#03D9C4"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
-    <!-- Botón de Jugar 3 en Raya -->
     <Button
-        android:id="@+id/b3en"
+        android:id="@+id/bjuegos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jugar 3 en Raya"
-        android:backgroundTint="#FF5722"
-        android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp"
-        android:onClick="ejecutar3raya" />
+        android:backgroundTint="#FF5722"
+        android:onClick="ejecutarMjuegos"
+        android:text="JUEGOS"
+        android:textColor="#FFFFFF" />
 
     <!-- Botón de Salir -->
     <Button
         android:id="@+id/b_salir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cerrar Aplicación"
         android:backgroundTint="#B00020"
-        android:textColor="#FFFFFF"
-        android:onClick="salir" />
+        android:onClick="salir"
+        android:text="Cerrar Aplicación"
+        android:textColor="#FFFFFF" />
 </LinearLayout>
