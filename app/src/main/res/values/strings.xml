@@ -4,4 +4,13 @@
     <string name="sumar">+</string>
     <string name="reseteo">RESETEO</string>
     <string name="checkBox">Contar Negativos</string>
+    <string name="tvTurno">Turno: X</string>
+    <string name="gridTablero">Tablero de juego</string>
+    <string name="layoutDificultad">Selecciona la Dificultad</string>
+    <string name="checkFacil">Fácil</string>
+    <string name="checkMedio">Medio</string>
+    <string name="checkDificil">Difícil</string>
+    <string name="btnConfirmarDificultad">Confirmar dificultad antes de jugar</string>
+    <string name="tvGanador">Ganador: </string>
+    <string name="btnReiniciar">Reiniciar Juego</string>
 </resources>

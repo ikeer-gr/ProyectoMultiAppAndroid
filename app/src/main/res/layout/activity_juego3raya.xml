@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTurno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Turno: X"
+        android:layout_marginBottom="16dp"
+        android:text="@string/tvTurno"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <GridLayout
         android:id="@+id/gridTablero"
@@ -76,33 +75,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Selecciona la Dificultad"
+            android:text="@string/layoutDificultad"
             android:textSize="18sp" />
 
         <CheckBox
             android:id="@+id/checkFacil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fácil" />
+            android:text="@string/checkFacil" />
 
         <CheckBox
             android:id="@+id/checkMedio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medio" />
+            android:text="@string/checkMedio" />
 
         <CheckBox
             android:id="@+id/checkDificil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Difícil" />
+            android:text="@string/checkDificil" />
 
         <Button
             android:id="@+id/btnConfirmarDificultad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Confirmar dificultad antes de jugar" />
+            android:text="@string/btnConfirmarDificultad" />
 
     </LinearLayout>
 
@@ -110,14 +109,14 @@
         android:id="@+id/tvGanador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ganador: "
-        android:visibility="gone"
+        android:layout_marginBottom="16dp"
+        android:text="@string/tvGanador"
         android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btnReiniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reiniciar Juego" />
+        android:text="@string/btnReiniciar" />
 </LinearLayout>

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 contador = valorDesdeIntent; // Usar valor enviado desde principal
             } else {
                 SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
-                contador = datos.getInt("cuenta", 0); // Restaurar desde SharedPreferences
+                contador = 0;
             }
         }
 
