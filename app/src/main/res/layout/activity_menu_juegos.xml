@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="?android:attr/colorBackground"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -11,11 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="#6200EE"
-        android:elevation="4dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:elevation="6dp"
         android:padding="16dp"
         android:text="3 en Raya"
-        android:textColor="#FFFFFF"
+        android:textColor="?android:attr/textColorPrimaryInverse"
         android:onClick="ejecutar3enRaya"
-        android:textSize="18sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </LinearLayout>

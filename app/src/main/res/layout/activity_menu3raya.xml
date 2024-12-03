@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/layoutModoJuego"
+<LinearLayout
+    android:id="@+id/layoutModoJuego"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?android:attr/colorBackgroundFloating">
 
     <CheckBox
         android:id="@+id/checkJugadorVsJugador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Jugador" />
+        android:text="Jugador vs Jugador"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="18sp" />
 
     <CheckBox
         android:id="@+id/checkJugadorVsMaquina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Máquina" />
+        android:text="Jugador vs Máquina"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:id="@+id/btnConfirmarModo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirmar Modo" />
+        android:text="Confirmar Modo"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 </LinearLayout>

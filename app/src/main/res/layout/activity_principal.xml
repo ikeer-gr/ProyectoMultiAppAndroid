@@ -2,31 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="#000000"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"> <!-- Fondo negro -->
 
     <!-- Encabezado -->
+
+    <!-- Botón de Calculadora -->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="82dp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
         android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:text="Bienvenido"
-        android:textColor="#333333"
+        android:text="Bienvenido!!"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <!-- Botón de Calculadora -->
     <Button
         android:id="@+id/bcal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#6200EE"
+        android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarCalculadora"
         android:text="Calculadora"
-        android:textColor="#FFFFFF" />
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
     <!-- Botón de Contador -->
     <Button
@@ -34,36 +41,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#03DAC5"
+        android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarContador"
         android:text="Contador"
-        android:textColor="#FFFFFF" />
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
     <!-- Campo de texto del contador -->
-    <!-- Botón de Jugar 3 en Raya -->
     <EditText
         android:id="@+id/valorinicial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#D1D1D1"
+        android:backgroundTint="?android:attr/colorAccent"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        android:textColor="#03D9C4"
-        android:textColorHint="#03D9C4"
+        android:textColor="?android:attr/textColorPrimaryInverse"
         android:textSize="36sp"
         android:textStyle="bold" />
 
+    <!-- Botón de Jugar 3 en Raya -->
     <Button
         android:id="@+id/bjuegos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarMjuegos"
         android:text="JUEGOS"
-        android:textColor="#FFFFFF" />
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
+
 
     <!-- Botón de Salir -->
     <Button
@@ -73,5 +82,6 @@
         android:backgroundTint="#B00020"
         android:onClick="salir"
         android:text="Cerrar Aplicación"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 </LinearLayout>
