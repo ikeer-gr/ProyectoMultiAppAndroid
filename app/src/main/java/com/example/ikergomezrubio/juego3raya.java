@@ -25,6 +25,8 @@ public class juego3raya extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego3raya);
 
+        getSupportActionBar().setTitle(getString(R.string.app_name2));
+
         // Obtener el modo desde el Intent
         modo = getIntent().getStringExtra("modo");
         if (modo == null) modo = "jugador_vs_maquina"; // Valor por defecto
@@ -46,8 +48,7 @@ public class juego3raya extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Tres en Raya");
-        }
+                  }
     }
 
     @Override

@@ -12,7 +12,7 @@
         android:id="@+id/checkJugadorVsJugador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Jugador"
+        android:text="@string/checkJugadorVsJugador"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="18sp" />
 
@@ -20,7 +20,7 @@
         android:id="@+id/checkJugadorVsMaquina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugador vs Máquina"
+        android:text="@string/checkJugadorVsMaquina"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="18sp"
         android:layout_marginTop="8dp" />
@@ -29,7 +29,7 @@
         android:id="@+id/btnConfirmarModo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirmar Modo"
+        android:text="@string/btnConfirmarModo"
         android:layout_marginTop="16dp"
         android:backgroundTint="?android:attr/colorAccent"
         android:textColor="?android:attr/textColorPrimaryInverse"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IkerGomezRubio</string>
+    <string name="app_name2">Tres en raya</string>
     <string name="restar">-</string>
     <string name="sumar">+</string>
     <string name="reseteo">RESETEO</string>
@@ -13,4 +13,20 @@
     <string name="btnConfirmarDificultad">Confirmar dificultad antes de jugar</string>
     <string name="tvGanador">Ganador: </string>
     <string name="btnReiniciar">Reiniciar Juego</string>
+
+    <string name="btnConfirmarModo">Confirmar modo</string>
+    <string name="checkJugadorVsMaquina">Jugador vs Máquina</string>
+    <string name="checkJugadorVsJugador">Jugador vs Jugador</string>
+    <string name="bienvenido">Bienvenido!!</string>
+    <string name="bcal">Calculadora</string>
+    <string name="bcontador">Contador</string>
+    <string name="bjuegos">Juegos</string>
+    <string name="b_salir">SALIR</string>
+    <string name="btnTresEnRaya">Tres en raya</string>
+    <string name="app_name1">Calculadora</string>
+    <string name="app_name6">"Proyecto de Iker "</string>
+    <string name="app_name5">Menu de juegos</string>
+    <string name="app_name4">Modos Tres en raya</string>
+    <string name="app_name3">Contador</string>
+
 </resources>

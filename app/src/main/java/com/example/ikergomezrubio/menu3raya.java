@@ -1,13 +1,13 @@
 package com.example.ikergomezrubio;
 
-import android.os.Bundle;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class menu3raya extends AppCompatActivity {
 
@@ -17,6 +17,7 @@ public class menu3raya extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu3raya);
+        getSupportActionBar().setTitle(getString(R.string.app_name4));
 
         configurarActionBar();
 
@@ -59,7 +60,6 @@ public class menu3raya extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true); // Muestra la flecha de "Atrás"
-            actionBar.setTitle("Tres en Raya"); // Título de la actividad
         }
     }
 

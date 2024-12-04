@@ -15,6 +15,7 @@ public class menuJuegos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu_juegos);
+        getSupportActionBar().setTitle(getString(R.string.app_name5));
 
         configurarActionBar();
     }
@@ -23,7 +24,6 @@ public class menuJuegos extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true); // Habilitar la flecha
-            actionBar.setTitle("Menú de Juegos"); // Título del ActionBar
         }
     }
 

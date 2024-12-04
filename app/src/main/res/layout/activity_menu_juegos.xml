@@ -14,7 +14,7 @@
         android:backgroundTint="?android:attr/colorAccent"
         android:elevation="6dp"
         android:padding="16dp"
-        android:text="3 en Raya"
+        android:text="@string/btnTresEnRaya"
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:onClick="ejecutar3enRaya"
         android:textSize="20sp"

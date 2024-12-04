@@ -15,11 +15,12 @@
         android:layout_height="82dp" />
 
     <TextView
+        android:id="@+id/bienvenido"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:text="Bienvenido!!"
+        android:text="@string/bienvenido"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -31,7 +32,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarCalculadora"
-        android:text="Calculadora"
+        android:text="@string/bcal"
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold" />
 
@@ -43,7 +44,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarContador"
-        android:text="Contador"
+        android:text="@string/bcontador"
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold" />
 
@@ -57,7 +58,7 @@
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -69,7 +70,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarMjuegos"
-        android:text="JUEGOS"
+        android:text="@string/bjuegos"
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold" />
 
@@ -81,7 +82,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#B00020"
         android:onClick="salir"
-        android:text="Cerrar Aplicación"
+        android:text="@string/b_salir"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 </LinearLayout>

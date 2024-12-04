@@ -15,6 +15,7 @@ public class principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
+        getSupportActionBar().setTitle(getString(R.string.app_name6));
     }
 
     public void ejecutarContador(View v) {
