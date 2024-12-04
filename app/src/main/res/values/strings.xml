@@ -28,5 +28,9 @@
     <string name="app_name5">Menu de juegos</string>
     <string name="app_name4">Modos Tres en raya</string>
     <string name="app_name3">Contador</string>
+    <string name="botonJuegoReiniciar">Reiniciar</string>
+    <string name="botonJuegoSalir">Salir</string>
+    <string name="btnpareja">Encuentra la pareja</string>
+    <string name="app_name7">Encuentra la pareja</string>
 
 </resources>

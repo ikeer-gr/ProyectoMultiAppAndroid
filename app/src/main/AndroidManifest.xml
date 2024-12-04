@@ -13,6 +13,9 @@
         android:theme="@style/Theme.IkerGomezRubio"
         tools:targetApi="31">
         <activity
+            android:name=".puzzle"
+            android:exported="false" />
+        <activity
             android:name=".menuJuegos"
             android:exported="false" />
         <activity

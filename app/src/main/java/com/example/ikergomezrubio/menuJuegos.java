@@ -24,6 +24,7 @@ public class menuJuegos extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true); // Habilitar la flecha
+            getSupportActionBar().setTitle(getString(R.string.app_name5));
         }
     }
 
@@ -37,4 +38,10 @@ public class menuJuegos extends AppCompatActivity {
         Intent i = new Intent(this, menu3raya.class);
         startActivity(i);
     }
+
+    public void ejecutarEncuentralaPareja(View v) {
+        Intent i = new Intent(this, puzzle.class);
+        startActivity(i);
+    }
+
 }
