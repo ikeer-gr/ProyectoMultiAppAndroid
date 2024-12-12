@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private int contador = 0; // Valor inicial por defecto
-    private static final String estadoContador = "estadoContador"; // Clave para guardar estado en Bundle
+    private static final String valorConta = "valorConta"; // Clave para guardar estado en Bundle
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +25,18 @@ public class MainActivity extends AppCompatActivity {
 
         TextView reseteo = findViewById(R.id.textDefault);
         reseteo.setOnEditorActionListener(new EventoTeclado());
+        getSupportActionBar().setTitle(getString(R.string.app_name3));
 
         // Restaurar desde el Intent si se proporciona un valor
         if (savedInstanceState != null) {
-            contador = savedInstanceState.getInt(estadoContador, 0); // Recuperar estado tras cambio de orientación
+            contador = savedInstanceState.getInt(valorConta, 0); // Recuperar estado tras cambio de orientación
         } else {
             int valorDesdeIntent = getIntent().getIntExtra("valor", 0);
             if (valorDesdeIntent != 0) {
                 contador = valorDesdeIntent; // Usar valor enviado desde principal
             } else {
-                //SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
-                contador = 0;//datos.getInt("cuenta", 0); // Restaurar desde SharedPreferences
+                SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+                contador = 0;
             }
         }
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(estadoContador, contador); // Guardar el valor actual del contador
+        outState.putInt(valorConta, contador); // Guardar el valor actual del contador
     }
 
     private class EventoTeclado implements TextView.OnEditorActionListener {

@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">IkerGomezRubio</string>
+    <string name="app_name2">Tic-Tac-Toe</string>
     <string name="restar">-</string>
     <string name="sumar">+</string>
     <string name="reseteo">RESET</string>
     <string name="checkBox">Count Negatives</string>
+    <string name="tvTurno">Turn: X</string>
+    <string name="gridTablero">Game Board</string>
+    <string name="layoutDificultad">Select Difficulty</string>
+    <string name="checkFacil">Easy</string>
+    <string name="checkMedio">Medium</string>
+    <string name="checkDificil">Hard</string>
+    <string name="btnConfirmarDificultad">Confirm difficulty before playing</string>
+    <string name="tvGanador">Winner: </string>
+    <string name="btnReiniciar">Restart Game</string>
+    <string name="btnConfirmarModo">Confirm Mode</string>
+    <string name="checkJugadorVsMaquina">Player vs Machine</string>
+    <string name="checkJugadorVsJugador">Player vs Player</string>
+    <string name="bienvenido">Welcome!!</string>
+    <string name="btnTresEnRaya">Tic-Tac-Toe</string>
+    <string name="bcal">Calculator</string>
+    <string name="bcontador">Counter</string>
+    <string name="bjuegos">Games</string>
+    <string name="b_salir">EXIT</string>
+    <string name="app_name1">Calculator</string>
+    <string name="app_name6">Iker\'s Project</string>
+    <string name="app_name5">Games Menu</string>
+    <string name="app_name4">Tic-Tac-Toe Modes</string>
+    <string name="app_name3">Counter</string>
+    <string name="botonJuegoReiniciar">Reset</string>
+    <string name="botonJuegoSalir">Exit</string>
+    <string name="btnpareja">Find the Pair</string>
+    <string name="app_name7">Find the Pair</string>
 </resources>

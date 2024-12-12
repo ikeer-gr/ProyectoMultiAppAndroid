@@ -2,76 +2,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#000000"
+    android:orientation="vertical"
+    android:padding="16dp"> <!-- Fondo negro -->
 
-    <LinearLayout
+    <!-- Encabezado -->
+
+    <!-- Botón de Calculadora -->
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="82dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="58dp" />
+    <TextView
+        android:id="@+id/bienvenido"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="@string/bienvenido"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
+    <Button
+        android:id="@+id/bcal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:onClick="ejecutarCalculadora"
+        android:text="@string/bcal"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+    <!-- Botón de Contador -->
+    <Button
+        android:id="@+id/bcontador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:onClick="ejecutarContador"
+        android:text="@string/bcontador"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/bcal"
-            style="@android:style/Widget.Button.Toggle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ejecutarCalculadora"
-            android:text="CALCULADORA" />
+    <!-- Campo de texto del contador -->
+    <EditText
+        android:id="@+id/valorinicial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="87dp" />
+    <!-- Botón de Jugar 3 en Raya -->
+    <Button
+        android:id="@+id/bjuegos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:onClick="ejecutarMjuegos"
+        android:text="@string/bjuegos"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/bcontador"
-            style="@android:style/Widget.Button.Toggle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ejecutarContador"
-            android:text="CONTADOR" />
 
-        <EditText
-            android:id="@+id/valorinicial"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:text="0"
-            android:textAlignment="center"
-            android:textSize="48sp"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="52dp" />
-
-        <Button
-            android:id="@+id/b3en"
-            style="@android:style/Widget.Button.Toggle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ejecutar3raya"
-            android:text="Jugar 3 en raya" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="114dp" />
-
-        <Button
-            android:id="@+id/b_salir"
-            style="@android:style/Widget.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="salir"
-            android:text="CERRAR APLICACION" />
-    </LinearLayout>
+    <!-- Botón de Salir -->
+    <Button
+        android:id="@+id/b_salir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#B00020"
+        android:onClick="salir"
+        android:text="@string/b_salir"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 </LinearLayout>

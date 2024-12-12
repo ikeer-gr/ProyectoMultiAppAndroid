@@ -15,6 +15,7 @@ public class principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
+        getSupportActionBar().setTitle(getString(R.string.app_name6));
     }
 
     public void ejecutarContador(View v) {
@@ -37,8 +38,8 @@ public class principal extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void ejecutar3raya(View v) {
-        Intent i = new Intent(this, menu3raya.class);
+    public void ejecutarMjuegos(View v) {
+        Intent i = new Intent(this, menuJuegos.class);
         startActivity(i);
     }
 

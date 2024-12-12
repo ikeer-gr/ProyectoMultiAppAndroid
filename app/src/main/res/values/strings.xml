@@ -1,7 +1,36 @@
 <resources>
-    <string name="app_name">IkerGomezRubio</string>
+    <string name="app_name2">Tres en raya</string>
     <string name="restar">-</string>
     <string name="sumar">+</string>
     <string name="reseteo">RESETEO</string>
     <string name="checkBox">Contar Negativos</string>
+    <string name="tvTurno">Turno: X</string>
+    <string name="gridTablero">Tablero de juego</string>
+    <string name="layoutDificultad">Selecciona la Dificultad</string>
+    <string name="checkFacil">Fácil</string>
+    <string name="checkMedio">Medio</string>
+    <string name="checkDificil">Difícil</string>
+    <string name="btnConfirmarDificultad">Confirmar dificultad antes de jugar</string>
+    <string name="tvGanador">Ganador: </string>
+    <string name="btnReiniciar">Reiniciar Juego</string>
+
+    <string name="btnConfirmarModo">Confirmar modo</string>
+    <string name="checkJugadorVsMaquina">Jugador vs Máquina</string>
+    <string name="checkJugadorVsJugador">Jugador vs Jugador</string>
+    <string name="bienvenido">Bienvenido!!</string>
+    <string name="bcal">Calculadora</string>
+    <string name="bcontador">Contador</string>
+    <string name="bjuegos">Juegos</string>
+    <string name="b_salir">SALIR</string>
+    <string name="btnTresEnRaya">Tres en raya</string>
+    <string name="app_name1">Calculadora</string>
+    <string name="app_name6">"Proyecto de Iker "</string>
+    <string name="app_name5">Menu de juegos</string>
+    <string name="app_name4">Modos Tres en raya</string>
+    <string name="app_name3">Contador</string>
+    <string name="botonJuegoReiniciar">Reiniciar</string>
+    <string name="botonJuegoSalir">Salir</string>
+    <string name="btnpareja">Encuentra la pareja</string>
+    <string name="app_name7">Encuentra la pareja</string>
+
 </resources>

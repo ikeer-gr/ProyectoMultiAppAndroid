@@ -25,6 +25,8 @@ public class juego3raya extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego3raya);
 
+        getSupportActionBar().setTitle(getString(R.string.app_name2));
+
         // Obtener el modo desde el Intent
         modo = getIntent().getStringExtra("modo");
         if (modo == null) modo = "jugador_vs_maquina"; // Valor por defecto
@@ -46,8 +48,7 @@ public class juego3raya extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Tres en Raya");
-        }
+                  }
     }
 
     @Override
@@ -151,26 +152,23 @@ public class juego3raya extends AppCompatActivity {
     private boolean verificarGanador() {
         // Comprobar filas
         for (int i = 0; i < 3; i++) {
-            if (tablero[i][0] != null && tablero[i][0].equals(tablero[i][1]) && tablero[i][1].equals(tablero[i][2])) {
-                return true; // Hay un ganador en la fila i
+            if (tablero[i][0] != null && tablero[i][0].equals(tablero[i][1]) && tablero[i][0].equals(tablero[i][2])) {
+                return true;
             }
         }
 
         // Comprobar columnas
         for (int i = 0; i < 3; i++) {
-            if (tablero[0][i] != null && tablero[0][i].equals(tablero[1][i]) && tablero[1][i].equals(tablero[2][i])) {
-                return true; // Hay un ganador en la columna i
+            if (tablero[0][i] != null && tablero[0][i].equals(tablero[1][i]) && tablero[0][i].equals(tablero[2][i])) {
+                return true;
             }
         }
 
-        // Comprobar diagonal principal
-        if (tablero[0][0] != null && tablero[0][0].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][2])) {
-            return true; // Hay un ganador en la diagonal principal
+        // Comprobar diagonales
+        if (tablero[0][0] != null && tablero[0][0].equals(tablero[1][1]) && tablero[0][0].equals(tablero[2][2])) {
+            return true;
         }
-
-        // Comprobar diagonal secundaria
-        return tablero[0][2] != null && tablero[0][2].equals(tablero[1][1]) && tablero[1][1].equals(tablero[2][0]); // Hay un ganador en la diagonal secundaria
-// No hay ganador
+        return tablero[0][2] != null && tablero[0][2].equals(tablero[1][1]) && tablero[0][2].equals(tablero[2][0]);
     }
 
 
