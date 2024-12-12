@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".principal">
+    <item
+        android:id="@+id/contador_menu"
+        android:title="Contador" />
+    <item
+        android:id="@+id/calculadora_menu"
+        android:title="Calculadora" />
+</menu>

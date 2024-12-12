@@ -2,6 +2,8 @@ package com.example.ikergomezrubio;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,6 +19,13 @@ public class principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         getSupportActionBar().setTitle(getString(R.string.app_name6));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu mimenu) {
+        getMenuInflater().inflate(R.menu.menu_principal, mimenu);
+        return true;
+    }
+
 
     public void ejecutarContador(View v) {
         Intent i = new Intent(this, MainActivity.class);
@@ -43,6 +52,19 @@ public class principal extends AppCompatActivity {
         startActivity(i);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem option_menu) {
+        int id = option_menu.getItemId();
+        if (id == R.id.contador_menu) {
+            ejecutarContador(null);
+            return true;
+        }
+        if (id == R.id.calculadora_menu) {
+            ejecutarCalculadora(null);
+            return true;
+        }
+        return super.onOptionsItemSelected(option_menu);
+    }
 
     public void salir(View v) {
         finish();
