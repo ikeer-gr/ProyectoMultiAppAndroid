@@ -57,6 +57,11 @@ public class principal extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void ejecutarherramientas(View v) {
+        Intent i = new Intent(this, herramientas.class);
+        startActivity(i);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem option_menu) {
         int id = option_menu.getItemId();

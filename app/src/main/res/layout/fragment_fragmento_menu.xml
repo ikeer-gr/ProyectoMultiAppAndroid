@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".fragmento_menu">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/b_linterna"
+            style="@style/boton3"
+            android:text="Linterna" />
+
+        <Space style="@style/espacio"></Space>
+
+        <Button
+            android:id="@+id/b_nivel"
+            style="@style/boton3"
+            android:text="Nivel" />
+
+        <Space style="@style/espacio"></Space>
+
+        <Button
+            android:id="@+id/b_musica"
+            style="@style/boton3"
+            android:text="Musica" />
+
+        <Space style="@style/espacio"></Space>
+
+        <Button
+            android:id="@+id/b_salir"
+            style="@style/boton3"
+            android:text="Salir" />
+
+        <Space style="@style/espacio"></Space>
+
+    </LinearLayout>
+</FrameLayout>

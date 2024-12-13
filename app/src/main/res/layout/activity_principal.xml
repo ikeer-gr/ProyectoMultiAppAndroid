@@ -74,6 +74,16 @@
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/bherramientas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:onClick="ejecutarherramientas"
+        android:text="@string/bherramientas"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
 
     <!-- Botón de Salir -->
     <Button

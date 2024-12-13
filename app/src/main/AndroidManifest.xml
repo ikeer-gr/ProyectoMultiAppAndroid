@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".herramientas"
+            android:exported="false" />
+        <activity
             android:name=".puzzle"
             android:exported="false" />
         <activity
