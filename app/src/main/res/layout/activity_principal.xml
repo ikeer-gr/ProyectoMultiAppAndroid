@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical"
-    android:padding="16dp"> <!-- Fondo negro -->
+    android:padding="16dp">
 
-    <!-- Encabezado -->
-
-    <!-- Botón de Calculadora -->
+    <include
+        android:id="@+id/menu_toolbar"
+        layout="@layout/menu_toolbar" />
 
     <Space
         android:layout_width="match_parent"

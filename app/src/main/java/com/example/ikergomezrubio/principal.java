@@ -9,15 +9,20 @@ import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class principal extends AppCompatActivity {
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_principal);
-        getSupportActionBar().setTitle(getString(R.string.app_name6));
+        toolbar = findViewById(R.id.menu_toolbar);
+        setSupportActionBar(toolbar);
+        // getSupportActionBar().setTitle(getString(R.string.app_name6));
     }
 
     @Override
@@ -61,6 +66,14 @@ public class principal extends AppCompatActivity {
         }
         if (id == R.id.calculadora_menu) {
             ejecutarCalculadora(null);
+            return true;
+        }
+        if (id == R.id.salir_menu) {
+            salir(null);
+            return true;
+        }
+        if (id == R.id.juegos_menu) {
+            ejecutarMjuegos(null);
             return true;
         }
         return super.onOptionsItemSelected(option_menu);

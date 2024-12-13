@@ -25,13 +25,13 @@ public class juego3raya extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego3raya);
 
-        getSupportActionBar().setTitle(getString(R.string.app_name2));
+      //  getSupportActionBar().setTitle(getString(R.string.app_name2));
 
         // Obtener el modo desde el Intent
         modo = getIntent().getStringExtra("modo");
         if (modo == null) modo = "jugador_vs_maquina"; // Valor por defecto
 
-        configurarActionBar();
+        //configurarActionBar();
         configurarSelectorDificultad(); // Solo si es necesario
         inicializarTablero();
         configurarBotonReiniciar();

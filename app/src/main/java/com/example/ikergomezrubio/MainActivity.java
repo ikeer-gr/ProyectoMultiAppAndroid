@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView reseteo = findViewById(R.id.textDefault);
         reseteo.setOnEditorActionListener(new EventoTeclado());
-        getSupportActionBar().setTitle(getString(R.string.app_name3));
+       // getSupportActionBar().setTitle(getString(R.string.app_name3));
 
         // Restaurar desde el Intent si se proporciona un valor
         if (savedInstanceState != null) {

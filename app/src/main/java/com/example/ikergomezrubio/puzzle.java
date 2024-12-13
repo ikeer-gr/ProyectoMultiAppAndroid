@@ -43,9 +43,9 @@ public class puzzle extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
-        getSupportActionBar().setTitle(getString(R.string.app_name7));
+        //     getSupportActionBar().setTitle(getString(R.string.app_name7));
         init();
-        configurarActionBar();
+        //  configurarActionBar();
     }
 
     private void cargarTablero() {

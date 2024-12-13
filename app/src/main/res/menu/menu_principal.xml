@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".principal">
     <item
         android:id="@+id/contador_menu"
-        android:title="Contador" />
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Contador"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/calculadora_menu"
-        android:title="Calculadora" />
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:orderInCategory="10"
+        android:title="Calculadora"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/salir_menu"
+        android:icon="@android:drawable/ic_delete"
+        android:orderInCategory="5"
+        android:title="Salir"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/juegos_menu"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Juegos" />
+
 </menu>

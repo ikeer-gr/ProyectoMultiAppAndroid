@@ -17,9 +17,9 @@ public class menu3raya extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu3raya);
-        getSupportActionBar().setTitle(getString(R.string.app_name4));
+       // getSupportActionBar().setTitle(getString(R.string.app_name4));
 
-        configurarActionBar();
+        //configurarActionBar();
 
         CheckBox checkJvsJ = findViewById(R.id.checkJugadorVsJugador);
         CheckBox checkJvsM = findViewById(R.id.checkJugadorVsMaquina);

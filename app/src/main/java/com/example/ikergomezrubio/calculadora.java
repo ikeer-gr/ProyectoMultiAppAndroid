@@ -22,7 +22,7 @@ public class calculadora extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora);
-        getSupportActionBar().setTitle(getString(R.string.app_name1));
+       // getSupportActionBar().setTitle(getString(R.string.app_name1));
 
         pantalla = findViewById(R.id.textView);
         configurarBotones();

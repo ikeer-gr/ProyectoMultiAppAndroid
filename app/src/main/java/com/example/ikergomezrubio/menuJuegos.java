@@ -15,9 +15,9 @@ public class menuJuegos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu_juegos);
-        getSupportActionBar().setTitle(getString(R.string.app_name5));
+      //  getSupportActionBar().setTitle(getString(R.string.app_name5));
 
-        configurarActionBar();
+        // configurarActionBar();
     }
 
     private void configurarActionBar() {
