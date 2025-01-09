@@ -1,6 +1,7 @@
 package com.example.ikergomezrubio;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class herramientas extends AppCompatActivity implements ComunicaMenu {
+public class herramientas extends AppCompatActivity implements ComunicaMenu, ManejaFlashCamara {
     private Fragment[] misFragmentos;
 
     @Override
@@ -34,5 +35,14 @@ public class herramientas extends AppCompatActivity implements ComunicaMenu {
             miTransaccion.commit();
         }
 
+    }
+
+    @Override
+    public void enciendeApaga(boolean estadoFlash) {
+        if (estadoFlash) {
+            Toast.makeText(this, "Flash inactivo", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Flash activo", Toast.LENGTH_SHORT).show();
+        }
     }
 }
