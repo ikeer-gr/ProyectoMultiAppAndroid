@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class puzzle extends AppCompatActivity {
+public class Puzzle extends AppCompatActivity {
 
     // variables para los componentes de la vista
     ImageButton imb00, imb01, imb02, imb03, imb04, imb05, imb06, imb07, imb08, imb09, imb10, imb11, imb12, imb13, imb14, imb15;

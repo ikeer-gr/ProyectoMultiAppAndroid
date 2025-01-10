@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class herramientas extends AppCompatActivity implements ComunicaMenu, ManejaFlashCamara {
+public class Herramientas extends AppCompatActivity implements ComunicaMenu, ManejaFlashCamara {
     private Fragment[] misFragmentos;
     private CameraManager MiCamara;
     private String idCamara;
@@ -24,9 +24,9 @@ public class herramientas extends AppCompatActivity implements ComunicaMenu, Man
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_herramientas);
         misFragmentos = new Fragment[3];
-        misFragmentos[0] = new fragmento_linterna();
-        misFragmentos[2] = new fragmento_musica();
-        misFragmentos[1] = new fragmento_nivel();
+        misFragmentos[0] = new Fragmento_linterna();
+        misFragmentos[2] = new Fragmento_musica();
+        misFragmentos[1] = new Fragmento_nivel();
         MiCamara = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
         try {

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class juego3raya extends AppCompatActivity {
+public class Juego3raya extends AppCompatActivity {
 
     private String[][] tablero = new String[3][3];
     private String turno = "X";

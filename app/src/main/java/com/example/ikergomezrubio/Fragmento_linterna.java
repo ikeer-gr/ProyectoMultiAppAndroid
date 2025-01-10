@@ -6,17 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 
-public class fragmento_linterna extends Fragment {
+public class Fragmento_linterna extends Fragment {
 
     private ImageView botonCamara;
     private boolean encendida;
 
-    public fragmento_linterna() {
+    public Fragmento_linterna() {
     }
 
     @Override

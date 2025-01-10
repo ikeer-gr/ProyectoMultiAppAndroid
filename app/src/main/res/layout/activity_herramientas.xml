@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".herramientas">
+    tools:context=".Herramientas">
 
     <Space
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/menu_herramientas"
-        android:name="com.example.ikergomezrubio.fragmento_menu"
+        android:name="com.example.ikergomezrubio.Fragmento_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_fragmento_menu" />

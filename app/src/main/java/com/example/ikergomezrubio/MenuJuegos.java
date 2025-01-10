@@ -8,7 +8,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class menuJuegos extends AppCompatActivity {
+public class MenuJuegos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,12 @@ public class menuJuegos extends AppCompatActivity {
     }
 
     public void ejecutar3enRaya(View v) {
-        Intent i = new Intent(this, menu3raya.class);
+        Intent i = new Intent(this, Menu3raya.class);
         startActivity(i);
     }
 
     public void ejecutarEncuentralaPareja(View v) {
-        Intent i = new Intent(this, puzzle.class);
+        Intent i = new Intent(this, Puzzle.class);
         startActivity(i);
     }
 

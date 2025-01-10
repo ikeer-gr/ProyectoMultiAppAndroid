@@ -13,22 +13,22 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".herramientas"
+            android:name=".Herramientas"
             android:exported="false" />
         <activity
-            android:name=".puzzle"
+            android:name=".Puzzle"
             android:exported="false" />
         <activity
-            android:name=".menuJuegos"
+            android:name=".MenuJuegos"
             android:exported="false" />
         <activity
-            android:name=".juego3raya"
+            android:name=".Juego3raya"
             android:exported="false" />
         <activity
-            android:name=".menu3raya"
+            android:name=".Menu3raya"
             android:exported="false" />
         <activity
-            android:name=".principal"
+            android:name=".Principal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,23 +37,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".calculadora"
+            android:name=".Calculadora"
             android:exported="false"
             android:label="Calculadora"
-            android:parentActivityName=".principal">
+            android:parentActivityName=".Principal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".principal" />
+                android:value=".Principal" />
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="Contador"
-            android:parentActivityName=".principal">
+            android:parentActivityName=".Principal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".principal" />
+                android:value=".Principal" />
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera.flash" />
 
 </manifest>

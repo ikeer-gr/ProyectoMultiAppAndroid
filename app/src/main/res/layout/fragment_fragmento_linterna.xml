@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmento_linterna"
+    tools:context=".Fragmento_linterna"
     android:background="@drawable/degradado">
 <ImageView
     android:layout_width="match_parent"

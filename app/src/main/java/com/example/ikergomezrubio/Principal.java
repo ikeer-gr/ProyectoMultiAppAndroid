@@ -11,7 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class principal extends AppCompatActivity {
+public class Principal extends AppCompatActivity {
 
     private Toolbar toolbar;
 
@@ -48,17 +48,17 @@ public class principal extends AppCompatActivity {
     }
 
     public void ejecutarCalculadora(View v) {
-        Intent i = new Intent(this, calculadora.class);
+        Intent i = new Intent(this, Calculadora.class);
         startActivity(i);
     }
 
     public void ejecutarMjuegos(View v) {
-        Intent i = new Intent(this, menuJuegos.class);
+        Intent i = new Intent(this, MenuJuegos.class);
         startActivity(i);
     }
 
     public void ejecutarherramientas(View v) {
-        Intent i = new Intent(this, herramientas.class);
+        Intent i = new Intent(this, Herramientas.class);
         startActivity(i);
     }
 

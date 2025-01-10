@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 
-public class fragmento_musica extends Fragment {
+public class Fragmento_nivel extends Fragment {
 
-    public fragmento_musica() {
+    public Fragmento_nivel() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_fragmento_musica, container, false);
+        return inflater.inflate(R.layout.fragment_fragmento_nivel, container, false);
     }
 }

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             int valorDesdeIntent = getIntent().getIntExtra("valor", 0);
             if (valorDesdeIntent != 0) {
-                contador = valorDesdeIntent; // Usar valor enviado desde principal
+                contador = valorDesdeIntent; // Usar valor enviado desde Principal
             } else {
                 SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
                 contador = 0;

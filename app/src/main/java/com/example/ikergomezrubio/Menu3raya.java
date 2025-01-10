@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class menu3raya extends AppCompatActivity {
+public class Menu3raya extends AppCompatActivity {
 
     private String modoSeleccionado = "jugador_vs_maquina"; // Predeterminado
 
@@ -51,7 +51,7 @@ public class menu3raya extends AppCompatActivity {
     }
 
     private void iniciarJuego(String modo) {
-        Intent intent = new Intent(this, juego3raya.class);
+        Intent intent = new Intent(this, Juego3raya.class);
         intent.putExtra("modo", modo);
         startActivity(intent);
     }

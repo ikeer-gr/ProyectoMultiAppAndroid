@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
 
-public class calculadora extends AppCompatActivity {
+public class Calculadora extends AppCompatActivity {
 
     private TextView pantalla;
     private final StringBuilder entrada = new StringBuilder();

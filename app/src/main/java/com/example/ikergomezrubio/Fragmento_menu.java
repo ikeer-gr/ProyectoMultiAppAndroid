@@ -10,10 +10,10 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 
-public class fragmento_menu extends Fragment {
+public class Fragmento_menu extends Fragment {
     private final int[] botonesmenu = {R.id.b_linterna, R.id.b_nivel, R.id.b_musica, R.id.b_salir};
 
-    public fragmento_menu() {
+    public Fragmento_menu() {
     }
 
     @Override
