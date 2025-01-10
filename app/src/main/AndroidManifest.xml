@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
+
+        <service
+            android:name=".Servicio_Musica"
+            android:enabled="true"></service>
+
         <activity
             android:name=".Herramientas"
             android:exported="false" />
