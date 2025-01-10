@@ -19,9 +19,9 @@ public class Servicio_Musica extends Service {
 
     public void onCreate() {
         super.onCreate();
-        miReproductor = MediaPlayer.create(this, R.raw.CowboySong);
+        miReproductor = MediaPlayer.create(this, R.raw.cancion);
         miReproductor.setLooping(true);
-        miReproductor.setVolume(100, 100);
+        miReproductor.setVolume(100000, 100000);
 
     }
 
