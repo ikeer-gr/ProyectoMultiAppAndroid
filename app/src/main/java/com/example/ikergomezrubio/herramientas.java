@@ -1,9 +1,13 @@
 package com.example.ikergomezrubio;
 
+import android.content.Context;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class herramientas extends AppCompatActivity implements ComunicaMenu, ManejaFlashCamara {
     private Fragment[] misFragmentos;
+    private CameraManager MiCamara;
+    private String idCamara;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,13 @@ public class herramientas extends AppCompatActivity implements ComunicaMenu, Man
         misFragmentos[0] = new fragmento_linterna();
         misFragmentos[2] = new fragmento_musica();
         misFragmentos[1] = new fragmento_nivel();
+        MiCamara = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+
+        try {
+            idCamara = MiCamara.getCameraIdList()[0];
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -34,15 +47,23 @@ public class herramientas extends AppCompatActivity implements ComunicaMenu, Man
             miTransaccion.replace(R.id.cont_herramientas, misFragmentos[queboton]);
             miTransaccion.commit();
         }
-
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void enciendeApaga(boolean estadoFlash) {
-        if (estadoFlash) {
-            Toast.makeText(this, "Flash inactivo", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Flash activo", Toast.LENGTH_SHORT).show();
+        try {
+            if (estadoFlash) {
+                Toast.makeText(this, "Linterna apagada", Toast.LENGTH_SHORT).show();
+                MiCamara.setTorchMode(idCamara, false);
+            } else {
+                Toast.makeText(this, "Linterna encendida", Toast.LENGTH_SHORT).show();
+                MiCamara.setTorchMode(idCamara, true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+
 }
