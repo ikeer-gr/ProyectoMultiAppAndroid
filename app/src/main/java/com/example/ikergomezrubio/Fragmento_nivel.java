@@ -25,7 +25,7 @@ public class Fragmento_nivel extends Fragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
         dimenw = metrics.widthPixels;
         dimenh = metrics.heightPixels;
-        pantalla = new NivelPantalla(getActivity(),dimenw,dimenh);
+        pantalla = new NivelPantalla(getActivity(),dimenh,dimenw);
     }
 
 

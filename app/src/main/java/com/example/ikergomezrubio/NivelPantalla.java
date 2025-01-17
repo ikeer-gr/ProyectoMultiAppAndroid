@@ -22,10 +22,8 @@ import androidx.appcompat.widget.AppCompatImageView;
             posTop = 75;
             posXY = 500;
             radio = 200;
-            DisplayMetrics metrics = new DisplayMetrics();
-            ((Activity) contexto).getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            this.dimenw = metrics.widthPixels;
-            this.dimenh = metrics.heightPixels;
+            this.dimenw = dimenw;
+            this.dimenh = dimenh;
         }
         protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
             radio = dimenw / 2 - posLeft;
