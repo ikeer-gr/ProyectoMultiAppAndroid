@@ -9,9 +9,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Typeface;
 import android.util.DisplayMetrics;
-import android.view.View;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 
 
@@ -19,7 +16,7 @@ import androidx.appcompat.widget.AppCompatImageView;
         int posLeft, posTop, posXY, dimenw, dimenh, radio;
         Bitmap fondo,burbuja;
 
-        public NivelPantalla(Context contexto) {
+        public NivelPantalla(Context contexto, int dimenh, int dimenw) {
             super(contexto);
             posLeft = 100;
             posTop = 75;
@@ -27,8 +24,10 @@ import androidx.appcompat.widget.AppCompatImageView;
             radio = 200;
             DisplayMetrics metrics = new DisplayMetrics();
             ((Activity) contexto).getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            dimenw = metrics.widthPixels;
-            dimenh = metrics.heightPixels;
+            this.dimenw = metrics.widthPixels;
+            this.dimenh = metrics.heightPixels;
+        }
+        protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
             radio = dimenw / 2 - posLeft;
         }
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
