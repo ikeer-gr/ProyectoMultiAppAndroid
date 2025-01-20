@@ -7,21 +7,32 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 
 
 public class NivelPantalla extends AppCompatImageView {
     int posLeft, posTop, posXY, dimenw, dimenh, radio;
     Bitmap fondo, burbuja;
+    private float[] angulos;
 
-    public NivelPantalla(Context contexto, int dimenh, int dimenw) {
+    public NivelPantalla(Context contexto, int dw, int dh) {
         super(contexto);
+        dimenw = dw;
+        dimenh = dh;
         posLeft = 100;
         posTop = 75;
         posXY = 500;
-        radio = 200;
-        this.dimenw = dimenw;
-        this.dimenh = dimenh;
+        radio = dimenh / 2 - posLeft;
+        fondo = iniciaFondo();
+        angulos = new float[2];
+        angulos[0] = 0;
+        angulos[1] = 0;
+        BitmapDrawable bola = (BitmapDrawable) ContextCompat.getDrawable(contexto, R.drawable.bola);
+        burbuja = bola.getBitmap();
+        burbuja = Bitmap.createScaledBitmap(burbuja, radio / 4, radio / 4, true);
+
     }
 
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
@@ -32,45 +43,69 @@ public class NivelPantalla extends AppCompatImageView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(dimenw, dimenh);
     }
+    protected Bitmap iniciaFondo() {
+        Bitmap.Config conf = Bitmap.Config.ARGB_4444;
+        Bitmap fondo = Bitmap.createBitmap(dimenw, dimenh, conf);
+        Canvas canvas = new Canvas(fondo);
 
-    protected void onDraw(Canvas canvas) {
-        // Crear un objeto Paint
         Paint lapiz = new Paint();
-        // Dibujar el fondo en color gris
+        lapiz.setAntiAlias(true);
+
+        // Fondo en gris
         lapiz.setColor(Color.GRAY);
         lapiz.setStyle(Paint.Style.FILL);
         canvas.drawRect(0, 0, dimenw, dimenh, lapiz);
-        // Dibujar un círculo rojo con borde
+
+        // Círculo rojo con borde
         lapiz.setColor(Color.RED);
         lapiz.setStrokeWidth(15);
         lapiz.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(dimenw / 2, dimenh / 2, radio, lapiz);
-        // Dibujar un círculo negro sólido
+
+        // Círculo negro sólido
         lapiz.setColor(Color.BLACK);
         lapiz.setStyle(Paint.Style.FILL);
         canvas.drawCircle(dimenw / 2, dimenh / 2, radio, lapiz);
-        // Dibujar un círculo rojo sólido más pequeño
+
+        // Círculo rojo sólido más pequeño
         lapiz.setColor(Color.RED);
-        lapiz.setStyle(Paint.Style.FILL);
         canvas.drawCircle(dimenw / 2, dimenh / 2, radio / 4, lapiz);
-        // Dibujar líneas en cruz (horizontal y vertical)
-        lapiz.setColor(Color.RED); // Asegurar color rojo
-        lapiz.setStrokeWidth(15); // Grosor de las líneas
-        // Línea horizontal
+
+        // Líneas en cruz
+        lapiz.setStrokeWidth(15);
         canvas.drawLine(dimenw / 2 - radio, dimenh / 2, dimenw / 2 + radio, dimenh / 2, lapiz);
-        // Línea vertical
         canvas.drawLine(dimenw / 2, dimenh / 2 - radio, dimenw / 2, dimenh / 2 + radio, lapiz);
-        // Crear un trazado circular para agregar texto
+
+        // Trazado circular para el texto
         Path miTrazo = new Path();
         miTrazo.addCircle(dimenw / 2, dimenh / 2, radio, Path.Direction.CCW);
-        // Configurar el Paint para el texto
+
+        // Configuración del texto
         lapiz.setStyle(Paint.Style.FILL);
         lapiz.setStrokeWidth(5);
         lapiz.setTextSize(100);
         lapiz.setTypeface(Typeface.SANS_SERIF);
-        lapiz.setColor(Color.RED); // Color para el texto
-        // Dibujar el texto en el trazado circular
-        canvas.drawTextOnPath("Mi nivel", miTrazo, dimenh, 100, lapiz);
+        lapiz.setColor(Color.RED);
+
+        // Dibuja el texto en el trazado
+        canvas.drawTextOnPath("Mi nivel", miTrazo, dimenh,100, lapiz);
+
+
+        return fondo;
+    }
+
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawBitmap(fondo, 0, 0, null);
+        int posX = radio + (int) (angulos[0] / 10 * radio) + posLeft / 2;
+        int posY = radio - (int) (angulos[1] / 10 * radio) + (dimenh / 4);
+
+        canvas.drawBitmap(burbuja, posX, posY, null);
+    }
+
+    public void angulos(float[] angulos) {
+        this.angulos = angulos;
+        invalidate();
     }
 
 }

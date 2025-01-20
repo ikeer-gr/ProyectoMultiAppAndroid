@@ -31,7 +31,7 @@ public class Fragmento_nivel extends Fragment implements SensorEventListener {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
         dimenw = metrics.widthPixels;
         dimenh = metrics.heightPixels;
-        pantalla = new NivelPantalla(getActivity(),dimenh,dimenw);
+        pantalla = new NivelPantalla(getActivity(),dimenw,dimenh);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Fragmento_nivel extends Fragment implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        //pantalla.angulos(sensorEvent.values);
+        pantalla.angulos(sensorEvent.values);
     }
 
     @Override
