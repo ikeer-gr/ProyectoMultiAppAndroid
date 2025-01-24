@@ -12,12 +12,12 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="82dp" />
+        android:layout_height="63dp" />
 
     <TextView
         android:id="@+id/bienvenido"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="62dp"
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="@string/bienvenido"
@@ -82,6 +82,17 @@
         android:backgroundTint="?android:attr/colorAccent"
         android:onClick="ejecutarherramientas"
         android:text="@string/bherramientas"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/b_bbdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="?android:attr/colorAccent"
+        android:onClick="ejecutarContactos"
+        android:text="@string/Contactos"
         android:textColor="?android:attr/textColorPrimaryInverse"
         android:textStyle="bold" />
 

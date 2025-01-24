@@ -62,6 +62,11 @@ public class Principal extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void ejecutarContactos(View v) {
+        Intent i = new Intent(this, Contactos.class);
+        startActivity(i);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem option_menu) {
         int id = option_menu.getItemId();

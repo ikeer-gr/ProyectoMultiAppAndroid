@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Espaciador inicial -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="101dp" />
+
+    <!-- Primer EditText -->
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text" />
+
+    <!-- Espaciador entre EditTexts -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+    <!-- Segundo EditText -->
+    <EditText
+        android:id="@+id/editApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Apellidos"
+        android:inputType="text" />
+
+    <!-- Espaciador entre EditTexts -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+    <!-- Tercer EditText -->
+    <EditText
+        android:id="@+id/editTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Teléfono"
+        android:inputType="text" />
+
+    <!-- Espaciador final -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <!-- Tabla -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:stretchColumns="*">
+
+        <!-- Primera fila -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/binsertar"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:text="INSERTAR" />
+
+            <Button
+                android:id="@+id/bbuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUSCAR"
+                />
+
+        </TableRow>
+
+        <!-- Segunda fila -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/bactualizar"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="ACTUALIZAR" />
+
+            <Button
+                android:id="@+id/bborrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BORRAR" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
