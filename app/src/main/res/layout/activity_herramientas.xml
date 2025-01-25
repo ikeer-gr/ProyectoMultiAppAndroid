@@ -2,31 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    style="@style/EstiloLinearLayoutPrincipal"
+    android:background="#000000"
     tools:context=".Herramientas">
 
+    <!-- Espaciador con estilo -->
     <Space
-        android:layout_width="match_parent"
-        android:layout_height="81dp" />
+        style="@style/EstiloEspacio"
+        android:layout_height="39dp" />
 
+    <!-- Fragmento del menú -->
     <fragment
         android:id="@+id/menu_herramientas"
         android:name="com.example.ikergomezrubio.Fragmento_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_fragmento_menu" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/cont_herramientas"
-        android:gravity="center">
 
+    <!-- Contenedor centrado -->
+    <RelativeLayout
+        android:id="@+id/cont_herramientas"
+        style="@style/EstiloRelativeLayout">
+
+        <!-- Imagen de herramienta -->
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="398dp"
-            android:src="@drawable/herramienta" />
+            android:src="@drawable/herramienta"
+            style="@style/EstiloImagen" />
+
     </RelativeLayout>
 
 </LinearLayout>

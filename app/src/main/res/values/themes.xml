@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.IkerGomezRubio" parent="Theme.AppCompat">
-        <item name="colorPrimary"> @color/purple_500</item>
+        <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/teal_200</item>
@@ -9,6 +9,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
+
     <style name="boton">
         <item name="android:backgroundTint">#00FF00</item>
         <item name="android:layout_width">wrap_content</item>
@@ -51,6 +52,81 @@
     <style name="espacio">
         <item name="android:layout_width">30dp</item>
         <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="BotonAzul1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:backgroundTint">?android:attr/colorAccent</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BotonTablero" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textColor">#7FCAC3</item>
+        <item name="android:textColorLink">#7FCAC3</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DimensionT">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="EstiloLinearLayoutPrincipal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+    <style name="EstiloEspacio">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">81dp</item>
+    </style>
+
+
+    <style name="EstiloRelativeLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="EstiloImagen">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">398dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="EstiloBotonModerno">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/boton_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="EstiloEspaciado">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">0.1</item>
     </style>
 
     <style name="Theme.IkerGomezRubio" parent="Base.Theme.IkerGomezRubio" />

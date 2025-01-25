@@ -27,26 +27,16 @@
 
     <Button
         android:id="@+id/bcal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
+        style="@style/BotonAzul1"
         android:onClick="ejecutarCalculadora"
-        android:text="@string/bcal"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/bcal" />
 
     <!-- Botón de Contador -->
     <Button
         android:id="@+id/bcontador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
+        style="@style/BotonAzul1"
         android:onClick="ejecutarContador"
-        android:text="@string/bcontador"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/bcontador" />
 
     <!-- Campo de texto del contador -->
     <EditText
@@ -65,45 +55,28 @@
     <!-- Botón de Jugar 3 en Raya -->
     <Button
         android:id="@+id/bjuegos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
+        style="@style/BotonAzul1"
         android:onClick="ejecutarMjuegos"
-        android:text="@string/bjuegos"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/bjuegos" />
 
     <Button
         android:id="@+id/bherramientas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
+        style="@style/BotonAzul1"
         android:onClick="ejecutarherramientas"
-        android:text="@string/bherramientas"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/bherramientas" />
 
     <Button
         android:id="@+id/b_bbdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
+        style="@style/BotonAzul1"
         android:onClick="ejecutarContactos"
-        android:text="@string/Contactos"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/Contactos" />
 
     <!-- Botón de Salir -->
     <Button
         android:id="@+id/b_salir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/BotonAzul1"
         android:backgroundTint="#B00020"
         android:onClick="salir"
         android:text="@string/b_salir"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:textColor="#FFFFFF" />
 </LinearLayout>

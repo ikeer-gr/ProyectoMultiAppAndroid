@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutModoJuego"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?android:attr/colorBackgroundFloating">
+    android:background="#000000">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="59dp" />
 
     <CheckBox
         android:id="@+id/checkJugadorVsJugador"
@@ -27,11 +32,22 @@
 
     <Button
         android:id="@+id/btnConfirmarModo"
+        style="@style/BotonAzul1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnConfirmarModo"
         android:layout_marginTop="16dp"
-        android:backgroundTint="?android:attr/colorAccent"
-        android:textColor="?android:attr/textColorPrimaryInverse"
-        android:textStyle="bold" />
+        android:text="@string/btnConfirmarModo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="393dp"
+        android:layout_height="616dp"
+        android:rotation="-28"
+        android:rotationX="4"
+        android:rotationY="-4"
+        app:srcCompat="@drawable/raya" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

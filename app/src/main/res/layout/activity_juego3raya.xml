@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground"
     android:gravity="center"
+    android:background="#000000"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -29,95 +29,23 @@
 
         <!-- Botones del tablero con colores personalizados -->
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:shadowColor="#303030"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
+            style="@style/BotonTablero" />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:stateListAnimator="@null"
-            android:textColor="#7FCAC3"
-            android:textColorLink="#7FCAC3"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/BotonTablero" />
 
     </GridLayout>
 
@@ -157,12 +85,10 @@
 
         <Button
             android:id="@+id/btnConfirmarDificultad"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            style="@style/BotonAzul1"
             android:layout_marginTop="16dp"
-            android:backgroundTint="?android:attr/colorAccent"
             android:text="@string/btnConfirmarDificultad"
-            android:textColor="?android:attr/textColorPrimaryInverse" />
+            />
 
     </LinearLayout>
 
@@ -178,9 +104,8 @@
 
     <Button
         android:id="@+id/btnReiniciar"
+        style="@style/BotonAzul1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?android:attr/colorAccent"
         android:text="@string/btnReiniciar"
-        android:textColor="?android:attr/textColorPrimaryInverse" />
+         />
 </LinearLayout>

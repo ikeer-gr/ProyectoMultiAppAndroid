@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:orientation="vertical"
     tools:context=".Fragmento_menu">
 
 
@@ -17,31 +16,29 @@
 
         <Button
             android:id="@+id/b_linterna"
-            style="@style/boton3"
+            style="@style/EstiloBotonModerno"
             android:text="Linterna" />
 
-        <Space style="@style/espacio"></Space>
+        <Space style="@style/EstiloEspaciado"/>
 
         <Button
             android:id="@+id/b_nivel"
-            style="@style/boton3"
+            style="@style/EstiloBotonModerno"
             android:text="Nivel" />
 
-        <Space style="@style/espacio"></Space>
+        <Space style="@style/EstiloEspaciado"/>
 
         <Button
             android:id="@+id/b_musica"
-            style="@style/boton3"
-            android:text="Musica" />
+            style="@style/EstiloBotonModerno"
+            android:text="Música" />
 
-        <Space style="@style/espacio"></Space>
+        <Space style="@style/EstiloEspaciado"/>
 
         <Button
             android:id="@+id/b_salir"
-            style="@style/boton3"
+            style="@style/EstiloBotonModerno"
             android:text="Salir" />
-
-        <Space style="@style/espacio"></Space>
 
     </LinearLayout>
 </FrameLayout>
