@@ -33,7 +33,7 @@ public class Calculadora extends AppCompatActivity {
                 R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
                 R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9,
                 R.id.btnSumar, R.id.btnRestar, R.id.btnMultiplicar, R.id.btnDividir,
-                R.id.btnLimpiar, R.id.btnBorrar, R.id.btnIgual, R.id.btnRaiz, R.id.btnPi, R.id.btnSigno
+                R.id.btnLimpiar, R.id.btnBorrar, R.id.btnIgual, R.id.btnRaiz, R.id.btnPi, R.id.btnComa
         };
 
         for (int id : idsBotones) {
@@ -62,8 +62,8 @@ public class Calculadora extends AppCompatActivity {
                 aplicarValorPi();
                 break;
 
-            case "+/-":
-                cambiarSigno();
+            case ",":
+                agregarComaDecimal();
                 break;
 
             case "+":
@@ -80,6 +80,22 @@ public class Calculadora extends AppCompatActivity {
             default:
                 agregarEntrada(textoBoton);
                 break;
+        }
+    }
+
+    private void agregarComaDecimal() {
+        if (nuevaOperacion) {
+            entrada.setLength(0);
+            entrada.append("0"); // Si es una nueva operación, comienza con "0."
+            nuevaOperacion = false;
+        }
+
+        if (!entrada.toString().contains(".")) { // Evitar múltiples puntos decimales
+            if (entrada.length() == 0) {
+                entrada.append("0"); // Si está vacío, comienza con "0."
+            }
+            entrada.append("."); // Agregar punto decimal
+            pantalla.setText(entrada.toString());
         }
     }
 
@@ -235,8 +251,4 @@ public class Calculadora extends AppCompatActivity {
         entrada.setLength(0); // Limpiar la entrada
         entrada.append(valor); // Sincronizar con el valor completo
     }
-
-
-
-
 }

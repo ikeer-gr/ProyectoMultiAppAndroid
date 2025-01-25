@@ -139,10 +139,10 @@
         <TableRow>
 
             <Button
-                android:id="@+id/btnSigno"
+                android:id="@+id/btnDividir"
                 style="@style/botoncal"
                 android:background="#979494"
-                android:text="+/-" />
+                android:text="/" />
 
             <Button
                 android:id="@+id/btn0"
@@ -150,10 +150,10 @@
                 android:text="0" />
 
             <Button
-                android:id="@+id/btnDividir"
+                android:id="@+id/btnComa"
                 style="@style/botoncal"
                 android:background="#979494"
-                android:text="/" />
+                android:text="," />
 
             <Button
                 android:id="@+id/btnIgual"

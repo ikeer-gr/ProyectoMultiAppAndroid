@@ -1,6 +1,7 @@
 package com.example.ikergomezrubio;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ public class Contactos extends AppCompatActivity {
         textoApellidos = findViewById(R.id.editApellidos);
         textoTelefono = findViewById(R.id.editTelefono);
         BBDD_Acciones accion = new BBDD_Acciones(this);
+
         botonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +44,46 @@ public class Contactos extends AppCompatActivity {
                 db.close();
             }
         });
+
+        botonBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SQLiteDatabase db = accion.getReadableDatabase();
+                String[] projection = {
+                        Estructura_BBDD.NOMBRE_COLUMNA1, // Nombre
+                        Estructura_BBDD.NOMBRE_COLUMNA2, // Apellidos
+                };
+
+                String selection = Estructura_BBDD.NOMBRE_COLUMNA3 + " = ?";
+                String[] selectionArgs = {textoTelefono.getText().toString()};
+                Cursor cursor = db.query(
+                        Estructura_BBDD.TABLE_NAME,   // Tabla
+                        projection,                   // Columnas a devolver
+                        selection,                    // Cláusula WHERE
+                        selectionArgs,                // Valores para la cláusula WHERE
+                        null,                         // No agrupar las filas
+                        null,                         // No filtrar por grupo
+                        null                          // Orden
+                );
+
+                if (cursor.moveToFirst()) {
+                    String nombre = cursor.getString(cursor.getColumnIndexOrThrow(Estructura_BBDD.NOMBRE_COLUMNA1));
+                    String apellidos = cursor.getString(cursor.getColumnIndexOrThrow(Estructura_BBDD.NOMBRE_COLUMNA2));
+                    textoNombre.setText(nombre);
+                    textoApellidos.setText(apellidos);
+                    Toast.makeText(getApplicationContext(), "Contacto encontrado", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Contacto no encontrado", Toast.LENGTH_SHORT).show();
+                }
+
+                cursor.close();
+                db.close();
+            }
+        });
+
+
     }
 }
 
