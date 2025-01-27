@@ -13,8 +13,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Contactos extends AppCompatActivity {
-    private Button botonInsertar, botonBuscar, botonActualizar, botonBorrar;
-    private EditText textoNombre, textoApellidos, textoTelefono;
+    Button botonInsertar, botonBuscar, botonActualizar, botonBorrar;
+    EditText textoNombre, textoApellidos, textoTelefono;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,47 @@ public class Contactos extends AppCompatActivity {
 
                 long newRowId = db.insert(Estructura_BBDD.TABLE_NAME, null, values);
                 Toast.makeText(getApplicationContext(), "Se insertaron los datos: " + newRowId, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        botonActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener una instancia de la base de datos en modo escritura
+                SQLiteDatabase db = accion.getWritableDatabase();
+
+                // Crear un objeto ContentValues para almacenar los nuevos valores
+                ContentValues valores = new ContentValues();
+
+                // Obtener los valores de los campos (asegúrate de que estos EditText existan en tu diseño)
+                String nuevoNombre = textoNombre.getText().toString();
+                String nuevoApellido = textoApellidos.getText().toString();
+                String nuevoTelefono = textoTelefono.getText().toString();
+
+                // Agregar los valores al objeto ContentValues
+                valores.put("nombre", nuevoNombre);
+                valores.put("apellido", nuevoApellido);
+                valores.put("telefono", nuevoTelefono);
+
+                // Usar el valor de textoTelefono para la cláusula WHERE correctamente
+                String whereClause = "telefono = ?";
+                String[] whereArgs = new String[]{nuevoTelefono};
+
+                int filasActualizadas = db.update("tu_tabla", valores, whereClause, whereArgs);
+
+                // Verificar si se actualizó correctamente
+                if (filasActualizadas > 0) {
+                    Toast.makeText(v.getContext(), "Actualización completada", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(v.getContext(), "No se pudo actualizar", Toast.LENGTH_SHORT).show();
+                }
+                // Cerrar la base de datos
                 db.close();
             }
         });
+
+
+
 
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
