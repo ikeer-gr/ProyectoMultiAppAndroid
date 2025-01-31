@@ -12,7 +12,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="63dp" />
+        android:layout_height="23dp" />
 
     <TextView
         android:id="@+id/bienvenido"
@@ -70,6 +70,12 @@
         style="@style/BotonAzul1"
         android:onClick="ejecutarContactos"
         android:text="@string/Contactos" />
+
+    <Button
+        android:id="@+id/b_podometro"
+        style="@style/BotonAzul1"
+        android:onClick="ejecutarPodometro"
+        android:text="@string/Podometro" />
 
     <!-- Botón de Salir -->
     <Button

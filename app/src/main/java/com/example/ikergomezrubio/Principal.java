@@ -22,7 +22,7 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         toolbar = findViewById(R.id.menu_toolbar);
         setSupportActionBar(toolbar);
-        // getSupportActionBar().setTitle(getString(R.string.app_name6));
+        getSupportActionBar().setTitle(getString(R.string.app_name6));
     }
 
     @Override
@@ -64,6 +64,11 @@ public class Principal extends AppCompatActivity {
 
     public void ejecutarContactos(View v) {
         Intent i = new Intent(this, Contactos.class);
+        startActivity(i);
+    }
+
+    public void ejecutarPodometro(View v) {
+        Intent i = new Intent(this, Podometro.class);
         startActivity(i);
     }
 
