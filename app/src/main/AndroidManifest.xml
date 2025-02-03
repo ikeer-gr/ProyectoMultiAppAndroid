@@ -10,7 +10,12 @@
 
     <uses-feature android:name="android.hardware.camera.flash" />
 
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
 
     <application
         android:allowBackup="true"
