@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <!-- Espaciador inicial -->
@@ -70,12 +71,14 @@
                 android:id="@+id/binsertar"
                 android:layout_width="42dp"
                 android:layout_height="match_parent"
+                style="@style/BotonAzul1"
                 android:text="INSERTAR" />
 
             <Button
                 android:id="@+id/bbuscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/BotonAzul1"
                 android:text="BUSCAR"
                 />
 
@@ -90,12 +93,14 @@
                 android:id="@+id/bactualizar"
                 android:layout_width="85dp"
                 android:layout_height="wrap_content"
+                style="@style/BotonAzul1"
                 android:text="ACTUALIZAR" />
 
             <Button
                 android:id="@+id/bborrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/BotonAzul1"
                 android:text="BORRAR" />
         </TableRow>
     </TableLayout>

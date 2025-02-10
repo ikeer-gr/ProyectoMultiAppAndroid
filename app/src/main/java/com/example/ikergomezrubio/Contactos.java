@@ -121,6 +121,44 @@ public class Contactos extends AppCompatActivity {
             }
         });
 
+        botonBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener una instancia de la base de datos en modo escritura
+                SQLiteDatabase db = accion.getWritableDatabase();
+
+                // Obtener el valor del teléfono ingresado por el usuario
+                String telefono = textoTelefono.getText().toString();
+
+                // Verificar que el campo de teléfono no esté vacío
+                if (telefono.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Definir la cláusula WHERE para eliminar el registro correspondiente
+                String whereClause = "telefono = ?";
+                String[] whereArgs = {telefono};
+
+                // Ejecutar la operación de eliminación
+                int filasEliminadas = db.delete(Estructura_BBDD.TABLE_NAME, whereClause, whereArgs);
+
+                // Verificar si se eliminó correctamente
+                if (filasEliminadas > 0) {
+                    Toast.makeText(getApplicationContext(), "Contacto eliminado", Toast.LENGTH_SHORT).show();
+                    // Limpiar los campos de texto
+                    textoNombre.setText("");
+                    textoApellidos.setText("");
+                    textoTelefono.setText("");
+                } else {
+                    Toast.makeText(getApplicationContext(), "No se encontró el contacto", Toast.LENGTH_SHORT).show();
+                }
+
+                // Cerrar la base de datos
+                db.close();
+            }
+        });
+
 
     }
 }

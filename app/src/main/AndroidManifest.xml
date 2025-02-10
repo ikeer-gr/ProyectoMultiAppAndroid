@@ -40,7 +40,8 @@
 
         <activity
             android:name=".Herramientas"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Puzzle"
             android:exported="false" />

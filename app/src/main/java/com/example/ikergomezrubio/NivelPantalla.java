@@ -11,7 +11,6 @@ import android.graphics.drawable.BitmapDrawable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
-
 public class NivelPantalla extends AppCompatImageView {
     int posLeft, posTop, posXY, dimenw, dimenh, radio;
     Bitmap fondo, burbuja;
@@ -19,12 +18,13 @@ public class NivelPantalla extends AppCompatImageView {
 
     public NivelPantalla(Context contexto, int dw, int dh) {
         super(contexto);
+
         dimenw = dw;
         dimenh = dh;
         posLeft = 100;
         posTop = 75;
         posXY = 500;
-        radio = dimenh / 2 - posLeft;
+        radio = dimenw / 2 - posLeft;
         fondo = iniciaFondo();
         angulos = new float[2];
         angulos[0] = 0;
@@ -32,7 +32,6 @@ public class NivelPantalla extends AppCompatImageView {
         BitmapDrawable bola = (BitmapDrawable) ContextCompat.getDrawable(contexto, R.drawable.bola);
         burbuja = bola.getBitmap();
         burbuja = Bitmap.createScaledBitmap(burbuja, radio / 4, radio / 4, true);
-
     }
 
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
@@ -43,6 +42,7 @@ public class NivelPantalla extends AppCompatImageView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(dimenw, dimenh);
     }
+
     protected Bitmap iniciaFondo() {
         Bitmap.Config conf = Bitmap.Config.ARGB_4444;
         Bitmap fondo = Bitmap.createBitmap(dimenw, dimenh, conf);
@@ -65,31 +65,24 @@ public class NivelPantalla extends AppCompatImageView {
         // Círculo negro sólido
         lapiz.setColor(Color.BLACK);
         lapiz.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(dimenw / 2, dimenh / 2, radio, lapiz);
+        Path miTrazo = new Path();
+        miTrazo.addCircle(dimenw / 2, dimenh / 2, radio, Path.Direction.CCW);
+        canvas.drawPath(miTrazo, lapiz);
 
         // Círculo rojo sólido más pequeño
         lapiz.setColor(Color.RED);
         canvas.drawCircle(dimenw / 2, dimenh / 2, radio / 4, lapiz);
 
         // Líneas en cruz
-        lapiz.setStrokeWidth(15);
-        canvas.drawLine(dimenw / 2 - radio, dimenh / 2, dimenw / 2 + radio, dimenh / 2, lapiz);
+        lapiz.setStrokeWidth(5);
+        canvas.drawLine(posLeft, dimenh / 2, radio + dimenw / 2, dimenh / 2, lapiz);
         canvas.drawLine(dimenw / 2, dimenh / 2 - radio, dimenw / 2, dimenh / 2 + radio, lapiz);
 
-        // Trazado circular para el texto
-        Path miTrazo = new Path();
-        miTrazo.addCircle(dimenw / 2, dimenh / 2, radio, Path.Direction.CCW);
-
-        // Configuración del texto
-        lapiz.setStyle(Paint.Style.FILL);
-        lapiz.setStrokeWidth(5);
+        // Texto en el trazado circular
         lapiz.setTextSize(100);
         lapiz.setTypeface(Typeface.SANS_SERIF);
         lapiz.setColor(Color.RED);
-
-        // Dibuja el texto en el trazado
-        canvas.drawTextOnPath("Mi nivel", miTrazo, dimenh,100, lapiz);
-
+        canvas.drawTextOnPath("Nuestro nivel", miTrazo, dimenh, 100, lapiz);
 
         return fondo;
     }
@@ -99,7 +92,6 @@ public class NivelPantalla extends AppCompatImageView {
         canvas.drawBitmap(fondo, 0, 0, null);
         int posX = radio + (int) (angulos[0] / 10 * radio) + posLeft / 2;
         int posY = radio - (int) (angulos[1] / 10 * radio) + (dimenh / 4);
-
         canvas.drawBitmap(burbuja, posX, posY, null);
     }
 
@@ -107,6 +99,4 @@ public class NivelPantalla extends AppCompatImageView {
         this.angulos = angulos;
         invalidate();
     }
-
 }
-
