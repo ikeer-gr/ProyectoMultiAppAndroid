@@ -15,12 +15,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Contactos extends AppCompatActivity {
     Button botonInsertar, botonBuscar, botonActualizar, botonBorrar;
     EditText textoNombre, textoApellidos, textoTelefono;
+    BBDD_Acciones accion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_contactos);
+
+        // Inicializar vistas
         botonInsertar = findViewById(R.id.binsertar);
         botonBuscar = findViewById(R.id.bbuscar);
         botonActualizar = findViewById(R.id.bactualizar);
@@ -28,8 +31,11 @@ public class Contactos extends AppCompatActivity {
         textoNombre = findViewById(R.id.editNombre);
         textoApellidos = findViewById(R.id.editApellidos);
         textoTelefono = findViewById(R.id.editTelefono);
-        BBDD_Acciones accion = new BBDD_Acciones(this);
 
+        // Inicializar la base de datos
+        accion = new BBDD_Acciones(this);
+
+        // Insertar registro
         botonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,70 +45,45 @@ public class Contactos extends AppCompatActivity {
                 values.put(Estructura_BBDD.NOMBRE_COLUMNA2, textoApellidos.getText().toString());
                 values.put(Estructura_BBDD.NOMBRE_COLUMNA3, textoTelefono.getText().toString());
 
-                long newRowId = db.insert(Estructura_BBDD.TABLE_NAME, null, values);
-                Toast.makeText(getApplicationContext(), "Se insertaron los datos: " + newRowId, Toast.LENGTH_LONG).show();
+                try {
+                    long newRowId = db.insertOrThrow(Estructura_BBDD.TABLE_NAME, null, values);
+                    Toast.makeText(getApplicationContext(), "Se insertaron los datos: " + newRowId, Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Error: El teléfono ya existe y no se puede repetir.", Toast.LENGTH_LONG).show();
+                } finally {
+                    db.close();
+                }
             }
         });
 
+        // Actualizar registro
         botonActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener una instancia de la base de datos en modo escritura
-                SQLiteDatabase db = accion.getWritableDatabase();
-
-                // Crear un objeto ContentValues para almacenar los nuevos valores
-                ContentValues valores = new ContentValues();
-
-                // Obtener los valores de los campos (asegúrate de que estos EditText existan en tu diseño)
-                String nuevoNombre = textoNombre.getText().toString();
-                String nuevoApellido = textoApellidos.getText().toString();
-                String nuevoTelefono = textoTelefono.getText().toString();
-
-                // Agregar los valores al objeto ContentValues
-                valores.put("nombre", nuevoNombre);
-                valores.put("apellido", nuevoApellido);
-                valores.put("telefono", nuevoTelefono);
-
-                // Usar el valor de textoTelefono para la cláusula WHERE correctamente
-                String whereClause = "telefono = ?";
-                String[] whereArgs = new String[]{nuevoTelefono};
-
-                int filasActualizadas = db.update("tu_tabla", valores, whereClause, whereArgs);
-
-                // Verificar si se actualizó correctamente
-                if (filasActualizadas > 0) {
-                    Toast.makeText(v.getContext(), "Actualización completada", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(v.getContext(), "No se pudo actualizar", Toast.LENGTH_SHORT).show();
-                }
-                // Cerrar la base de datos
-                db.close();
+                actualizarRegistro(v);
             }
         });
 
-
-
-
+        // Buscar registro
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SQLiteDatabase db = accion.getReadableDatabase();
                 String[] projection = {
                         Estructura_BBDD.NOMBRE_COLUMNA1, // Nombre
-                        Estructura_BBDD.NOMBRE_COLUMNA2, // Apellidos
+                        Estructura_BBDD.NOMBRE_COLUMNA2  // Apellidos
                 };
 
                 String selection = Estructura_BBDD.NOMBRE_COLUMNA3 + " = ?";
                 String[] selectionArgs = {textoTelefono.getText().toString()};
                 Cursor cursor = db.query(
-                        Estructura_BBDD.TABLE_NAME,   // Tabla
-                        projection,                   // Columnas a devolver
-                        selection,                    // Cláusula WHERE
-                        selectionArgs,                // Valores para la cláusula WHERE
-                        null,                         // No agrupar las filas
-                        null,                         // No filtrar por grupo
-                        null                          // Orden
+                        Estructura_BBDD.TABLE_NAME, // Tabla
+                        projection,                // Columnas a devolver
+                        selection,                 // Cláusula WHERE
+                        selectionArgs,             // Valores para la cláusula WHERE
+                        null,                      // No agrupar las filas
+                        null,                      // No filtrar por grupo
+                        null                       // Orden
                 );
 
                 if (cursor.moveToFirst()) {
@@ -111,56 +92,89 @@ public class Contactos extends AppCompatActivity {
                     textoNombre.setText(nombre);
                     textoApellidos.setText(apellidos);
                     Toast.makeText(getApplicationContext(), "Contacto encontrado", Toast.LENGTH_SHORT).show();
-
                 } else {
                     Toast.makeText(getApplicationContext(), "Contacto no encontrado", Toast.LENGTH_SHORT).show();
                 }
-
                 cursor.close();
                 db.close();
             }
         });
 
+        // Borrar registro
         botonBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtener una instancia de la base de datos en modo escritura
                 SQLiteDatabase db = accion.getWritableDatabase();
-
-                // Obtener el valor del teléfono ingresado por el usuario
                 String telefono = textoTelefono.getText().toString();
 
-                // Verificar que el campo de teléfono no esté vacío
                 if (telefono.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Definir la cláusula WHERE para eliminar el registro correspondiente
-                String whereClause = "telefono = ?";
+                String whereClause = Estructura_BBDD.NOMBRE_COLUMNA3 + " = ?";
                 String[] whereArgs = {telefono};
 
-                // Ejecutar la operación de eliminación
                 int filasEliminadas = db.delete(Estructura_BBDD.TABLE_NAME, whereClause, whereArgs);
 
-                // Verificar si se eliminó correctamente
                 if (filasEliminadas > 0) {
                     Toast.makeText(getApplicationContext(), "Contacto eliminado", Toast.LENGTH_SHORT).show();
-                    // Limpiar los campos de texto
                     textoNombre.setText("");
                     textoApellidos.setText("");
                     textoTelefono.setText("");
                 } else {
                     Toast.makeText(getApplicationContext(), "No se encontró el contacto", Toast.LENGTH_SHORT).show();
                 }
-
-                // Cerrar la base de datos
                 db.close();
             }
         });
+    }
 
+    // Método para actualizar el registro
+    private void actualizarRegistro(View v) {
+        // Obtener y limpiar los valores de los EditText
+        String nuevoNombre = textoNombre.getText().toString().trim();
+        String nuevoApellido = textoApellidos.getText().toString().trim();
+        String nuevoTelefono = textoTelefono.getText().toString().trim();
 
+        // Validar que ningún campo esté vacío
+        if (nuevoNombre.isEmpty() || nuevoApellido.isEmpty() || nuevoTelefono.isEmpty()) {
+            Toast.makeText(v.getContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        SQLiteDatabase db = null;
+        try {
+            if (accion == null) {
+                Toast.makeText(v.getContext(), "Error: Base de datos no inicializada", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            db = accion.getWritableDatabase();
+
+            // Preparar los valores a actualizar
+            ContentValues valores = new ContentValues();
+            valores.put(Estructura_BBDD.NOMBRE_COLUMNA1, nuevoNombre);
+            valores.put(Estructura_BBDD.NOMBRE_COLUMNA2, nuevoApellido);
+            valores.put(Estructura_BBDD.NOMBRE_COLUMNA3, nuevoTelefono);
+
+            // Establecer la condición de actualización: actualizar el registro cuyo teléfono coincida
+            String whereClause = Estructura_BBDD.NOMBRE_COLUMNA3 + " = ?";
+            String[] whereArgs = {nuevoTelefono};
+
+            int filasActualizadas = db.update(Estructura_BBDD.TABLE_NAME, valores, whereClause, whereArgs);
+
+            if (filasActualizadas > 0) {
+                Toast.makeText(v.getContext(), "Actualización completada", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(v.getContext(), "No se encontró el registro para actualizar", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(v.getContext(), "Error al actualizar: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        } finally {
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
     }
 }
-
-

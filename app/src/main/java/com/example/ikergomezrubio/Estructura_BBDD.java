@@ -18,7 +18,7 @@ public class Estructura_BBDD {
                     Estructura_BBDD._ID + " INTEGER PRIMARY KEY" + COMMA_SEP +
                     Estructura_BBDD.NOMBRE_COLUMNA1 + TEXT_TYPE + COMMA_SEP +
                     Estructura_BBDD.NOMBRE_COLUMNA2 + TEXT_TYPE + COMMA_SEP +
-                    Estructura_BBDD.NOMBRE_COLUMNA3 + TEXT_TYPE + ")";
+                    Estructura_BBDD.NOMBRE_COLUMNA3 + " TEXT UNIQUE);";
 
 
     public static final String SQL_DELETE_ENTRIES =

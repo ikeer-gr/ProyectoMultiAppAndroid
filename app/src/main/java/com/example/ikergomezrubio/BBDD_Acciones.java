@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BBDD_Acciones  extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1 ;
+    private static final int DATABASE_VERSION = 3 ;
     private static final String DATABASE_NAME = "Clientes.db";
 
 
@@ -16,6 +16,7 @@ public class BBDD_Acciones  extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(Estructura_BBDD.SQL_CREATE_ENTRIES);
     }
 
