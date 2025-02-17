@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/bienvenido"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="@string/bienvenido"
@@ -76,6 +76,12 @@
         style="@style/BotonAzul1"
         android:onClick="ejecutarPodometro"
         android:text="@string/Podometro" />
+
+    <Button
+        android:id="@+id/b_tiempo"
+        style="@style/BotonAzul1"
+        android:onClick="ejecutarTiempo"
+        android:text="@string/Tiempo" />
 
     <!-- Botón de Salir -->
     <Button

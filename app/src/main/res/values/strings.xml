@@ -38,5 +38,7 @@
     <string name="niveltitulo">Bienvenido a mi nivel</string>
     <string name="Contactos">Contactos</string>
     <string name="Podometro">Podometro</string>
+    <string name="Tiempo">Tiempo</string>
+    <string name="weather_icon">icon</string>
 
 </resources>

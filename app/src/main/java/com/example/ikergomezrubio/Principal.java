@@ -72,6 +72,11 @@ public class Principal extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void ejecutarTiempo(View v) {
+        Intent i = new Intent(this, AppTiempo.class);
+        startActivity(i);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem option_menu) {
         int id = option_menu.getItemId();
