@@ -30,7 +30,6 @@ public class RespuestaTiempo {
         private float feels_like;
         private int pressure;
         private int humidity;
-        private float dew_point; // OpenWeatherMap no lo tiene directamente, necesitas calcularlo si es necesario.
 
         public float getTemp() {
             return temp;
@@ -46,10 +45,6 @@ public class RespuestaTiempo {
 
         public int getHumidity() {
             return humidity;
-        }
-
-        public float getDewPoint() {
-            return dew_point;
         }
     }
 

@@ -8,6 +8,7 @@ public interface ServicioTiempo {
     @GET("weather")
     Call<RespuestaTiempo> getWeather(
             @Query("q") String city,
-            @Query("appid") String apiKey
+            @Query("appid") String apiKey,
+            @Query("lang") String lang
     );
 }

@@ -2,41 +2,44 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
-    android:background="@color/background_light">
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="20dp"
         android:gravity="center_horizontal">
 
-        <!-- Encabezado -->
         <TextView
             android:id="@+id/tvCity"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins"
             android:text="Murcia"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp" />
+            android:textAlignment="center"
+            android:textColor="@color/backgroundColor"
+            android:textSize="30sp" />
 
-        <!-- Icono del clima -->
+
         <ImageView
             android:id="@+id/weatherIcon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/playa_calblanque"
-            android:layout_marginBottom="8dp" />
+            android:layout_width="100dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_sunny" />
 
-        <!-- Tarjeta de temperatura principal -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:padding="16dp">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/card_background"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,42 +47,46 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <!-- Temperatura (NO modificar) -->
                 <TextView
                     android:id="@+id/weatherText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Temperatura en Murcia: --°C"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_height="44dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="28°C"
+                    android:textColor="@color/black"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
 
-                <!-- Sensación térmica -->
                 <TextView
                     android:id="@+id/tvFeelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sensación térmica: --°C"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="Sensación térmica: 30°C"
+                    android:textSize="16sp"
+                    android:textColor="@color/gray_dark" />
 
-                <!-- Descripción del clima -->
                 <TextView
                     android:id="@+id/tvWeatherDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="--"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Soleado con algunas nubes"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:layout_marginBottom="8dp" />
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Tarjeta de detalles climáticos -->
-        <androidx.cardview.widget.CardView
+          <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="@color/card_background"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,109 +95,72 @@
                 android:gravity="center_horizontal">
 
                 <TextView
-                    android:text="Detalles del Clima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
+                    android:layout_marginBottom="8dp"
+                    android:text="Detalles del Clima"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvWind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Viento: -- m/s --"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="Viento: 10 km/h"
+                    style="@style/weatherDetailsText" />
 
                 <TextView
                     android:id="@+id/tvPressure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Presión: -- hPa"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="Presión: 1013 hPa"
+                    style="@style/weatherDetailsText" />
 
                 <TextView
                     android:id="@+id/tvHumidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Humedad: --%"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/tvDewPoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Punto de rocío: --°C"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
+                    android:text="Humedad: 65%"
+                    style="@style/weatherDetailsText" />
 
                 <TextView
                     android:id="@+id/tvVisibility"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Visibilidad: -- km"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="8dp" />
+                    android:text="Visibilidad: 10 km"
+                    style="@style/weatherDetailsText" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Separador -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp" />
-
-        <!-- Título de la sección de imágenes -->
         <TextView
-            android:text="Algunas playas de Murcia"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:text="Playas cercanas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
 
-        <!-- Cuadrícula de imágenes -->
         <GridLayout
-            android:layout_width="match_parent"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:alignmentMode="alignMargins"
             android:useDefaultMargins="true">
 
             <ImageView
                 android:id="@+id/imgPlaya1"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:src="@drawable/playa_calblanque"
-                android:layout_margin="8dp" />
+                style="@style/weatherImage"
+                android:src="@drawable/playa_calblanque" />
 
             <ImageView
                 android:id="@+id/imgPlaya2"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:src="@drawable/playa_calblanque"
-                android:layout_margin="8dp" />
+                style="@style/weatherImage"
+                android:src="@drawable/playa_bolnuevo" />
 
             <ImageView
                 android:id="@+id/imgPlaya3"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:src="@drawable/playa_calblanque"
-                android:layout_margin="8dp" />
+                style="@style/weatherImage"
+                android:src="@drawable/playa_carolina" />
 
+            <ImageView
+                android:id="@+id/imgPlaya4"
+                style="@style/weatherImage"
+                android:src="@drawable/playa_percheles" />
         </GridLayout>
-
-        <ImageView
-            android:id="@+id/imgPlaya4"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/playa_calblanque" />
-
     </LinearLayout>
 </ScrollView>

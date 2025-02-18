@@ -5,12 +5,15 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF03DAC5</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#F5F5F5</color>
     <color name="primaryColor">#3F51B5</color>
     <color name="primaryTextColor">#212121</color>
     <color name="secondaryTextColor">#757575</color>
-    <color name="background_light">#F5F5F5</color>
     <color name="black1">#212121</color>
+    <color name="gray_dark">#4A4A4A</color> <!-- Un gris oscuro elegante -->
+    <color name="gray_light">#BDBDBD</color> <!-- Gris claro para detalles -->
+    <color name="background_light">#F2F2F2</color> <!-- Fondo claro -->
+    <color name="card_background">#FFFFFF</color> <!-- Fondo blanco para tarjetas -->
+    <color name="white">#FFFFFF</color> <!-- Blanco puro -->
+    <color name="black">#000000</color> <!-- Negro puro -->
 </resources>
